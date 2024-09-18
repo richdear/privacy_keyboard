@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Option to provide vibrate/haptic feedback on keypress -->
+  <string name="vibrate_on_keypress">Vibrate on keypress</string>
+
+  <!-- Option to play back sound on keypress in soft keyboard -->
+  <string name="sound_on_keypress">Sound on keypress</string>
+
+  <!-- Option to control whether or not to show a popup with a larger font on each key press. -->
+  <string name="popup_on_keypress">Popup on keypress</string>
+
+  <!-- Settings screen title for preferences [CHAR LIMIT=33]-->
+  <string name="settings_screen_preferences">Preferences</string>
+  <!-- Settings screen title for key press preferences [CHAR LIMIT=33]-->
+  <string name="settings_screen_key_press">Key press</string>
+  <!-- Settings screen title for appearance preferences [CHAR LIMIT=33] -->
+  <string name="settings_screen_appearance">Appearance</string>
+  <!-- Settings screen title for keyboard theme settings [CHAR LIMIT=33] -->
+  <string name="settings_screen_theme">Theme</string>
+
+  <!-- Units abbreviation for the duration (milliseconds) [CHAR LIMIT=10] -->
+  <string name="abbreviation_unit_milliseconds"><xliff:g id="MILLISECONDS">%s</xliff:g>ms</string>
+  <!-- The text that represents the current settings value is the system default [CHAR LIMIT=25] -->
+  <string name="settings_system_default">System default</string>
+
+  <!-- Option to enable auto capitalization of sentences -->
+  <string name="auto_cap">Auto-capitalization</string>
+  <!-- Description for option to enable auto capitalization of sentences -->
+  <string name="auto_cap_summary">Capitalize the first word of each sentence</string>
+
+  <!-- Preference for input language selection -->
+  <string name="select_language">Languages</string>
+
+  <!-- Description for English (UK) keyboard subtype [CHAR LIMIT=25]
+       (UK) should be an abbreviation of United Kingdom to fit in the CHAR LIMIT. -->
+  <string name="locale_name_en_GB">English (UK)</string>
+  <!-- Description for English (US) keyboard subtype [CHAR LIMIT=25]
+       (US) should be an abbreviation of United States to fit in the CHAR LIMIT. -->
+  <string name="locale_name_en_US">English (US)</string>
+  <!-- Description for Spanish (US) keyboard subtype [CHAR LIMIT=25]
+       (US) should be an abbreviation of United States to fit in the CHAR LIMIT. -->
+  <string name="locale_name_es_US">Spanish (US)</string>
+  <!-- Description for Hinglish (https://en.wikipedia.org/wiki/Hinglish) keyboard subtype [CHAR LIMIT=25] -->
+  <string name="locale_name_hi_ZZ">Hinglish</string>
+  <!-- Description for Serbian (Latin) keyboard subtype [CHAR LIMIT=25]
+       (Latin) can be an abbreviation to fit in the CHAR LIMIT. -->
+  <string name="locale_name_sr_ZZ">Serbian (Latin)</string>
+  <!-- Description for a keyboard layout listing the language and layout name. -->
+  <string name="subtype_generic_layout"><xliff:g example="English (US)" id="LANGUAGE_NAME">%s</xliff:g> (<xliff:g example="QWERTY" id="LAYOUT">%s</xliff:g>)</string>
+  <!-- Description for a traditional keyboard layout, such as Nepali (Traditional). -->
+  <string name="subtype_traditional">Traditional</string>
+  <!-- Description for a compact keyboard layout, such as Hindi (Compact). -->
+  <string name="subtype_compact">Compact</string>
+  <!-- Description for Bulgarian (BDS) keyboard layout. -->
+  <string name="subtype_bds">BDS</string>
+  <!-- Description for Turkish (Q) keyboard layout. -->
+  <string name="subtype_q">Q</string>
+  <!-- Description for Turkish (F) keyboard layout. -->
+  <string name="subtype_f">F</string>
+  <!-- Description for Bengali (Bijoy) keyboard layout. -->
+  <string name="subtype_bijoy">Bijoy</string>
+
+  <string name="keyboard_theme_dark_border" translatable="false">Material Dark Border</string>
+  <string name="keyboard_theme_light_border" translatable="false">Material Light Border</string>
+  <string name="keyboard_theme_dark" translatable="false">Material Dark</string>
+  <string name="keyboard_theme_light" translatable="false">Material Light</string>
+  <string name="keyboard_theme_system" translatable="false">System Default</string>
+  <string name="keyboard_theme_system_border" translatable="false">System Default Border</string>
+  <string name="keyboard_theme_pure_day" translatable="false">Pure Day</string>
+  <string name="keyboard_theme_pure_night" translatable="false">Pure Night</string>
+
+  <!-- Title of the button to add a language in the settings dialog [CHAR LIMIT=15] -->
+  <string name="add">Add</string>
+  <!-- Title of the button to remove a language in the settings dialog [CHAR LIMIT=15] -->
+  <string name="remove">Remove</string>
+
+  <!-- Title of the settings for keypress vibration duration [CHAR LIMIT=35] -->
+  <string name="prefs_keypress_vibration_duration_settings">Keypress vibration duration</string>
+  <!-- Title of the settings for keypress sound volume [CHAR LIMIT=35] -->
+  <string name="prefs_keypress_sound_volume_settings">Keypress sound volume</string>
+  <!-- Title of the settings for key long press delay [CHAR LIMIT=35] -->
+  <string name="prefs_key_longpress_timeout_settings">Key long press delay</string>
+
+  <!-- Title of the button to revert to the default value of the device in the settings dialog [CHAR LIMIT=15] -->
+  <string name="button_default">Default</string>
+
+  <string name="abbreviation_unit_percent" translatable="false"><xliff:g id="PERCENTS">%s</xliff:g>%%</string>
+
+  <string name="prefs_keyboard_height_settings">Keyboard height</string>
+  <string name="keyboard_color">Set custom keyboard color</string>
+  <string name="hide_special_chars">Hide special characters</string>
+  <string name="hide_language_switch_key">Hide language switch key</string>
+  <string name="pref_enable_ime_switch">Switch to other keyboards</string>
+  <string name="show_number_row">Show separate number row</string>
+  <string name="space_swipe">Space swipe cursor move</string>
+  <string name="delete_swipe">Delete swipe</string>
+  <string name="matching_navbar_color">Use matching navigation bar color</string>
+  <string name="setup_message">PrivacyKeyboard is not enabled. Click OK to open Languages &amp; Input settings. You will need to select PrivacyKeyboard in your current keyboard to use it.</string>
+  <string name="user_languages">Enabled keyboard languages</string>
+  <string name="add_language">Add language</string>
+  <string name="remove_language">Remove language</string>
+  <string name="generic_language_layouts"><xliff:g example="English (US)" id="LANGUAGE_NAME">%s</xliff:g> keyboard layouts</string>
+  <string name="change_keyboard">Change keyboard</string>
+  <string name="e2ee_help_text_string" translatable="false"><![CDATA[<html lang="en">
+	<body>
+<main>
+    <h2>PrivacyKeyboard v1.0.1</h>
+    <h3>Ready to begin chatting?</h3>
+    <ul>
+        <li>To invite a chat companion, click on the contacts icon (person symbol) and send them your invitation message (add person icon). The invitation will be automatically placed in the messenger\'s input field.</li>
+        <li>Your chat companion needs to add you to their contacts and then send you a secured message. Copy this message to your clipboard and click on the \"unlock\" button (open lock icon).</li>
+        <li>A new menu will appear where you can save the chat companion\'s name. Then, click on the \"tick\" button. The contact is now selected by default.</li>
+    </ul>
+
+    <h3>What should I do if someone sends me an invitation?</h3>
+    <ul>
+        <li>Copy the invitation message to your clipboard and press the \"unlock\" button (open lock icon).</li>
+        <li>A new menu will appear where you can save the chat companion\'s name. Then, click the \"tick\" button.</li>
+        <li>Select your chat companion from the contacts icon (person symbol) and send them a secured message (closed lock icon).</li>
+    </ul>
+
+    <h3>How can I send/encrypt a message?</h3>
+    <ul>
+        <li>If you have already added your chat companion to your contacts, select them from the contacts icon (person symbol) and type your message in the PrivacyKeyboard input field.</li>
+        <li>Then, press the \"encrypt\" button (closed lock icon). The message will be placed in an encrypted format in the messenger\'s input field, ready for sending.</li>
+        <li>If your chat companion is not yet in your contacts, refer to \"Ready to begin chatting?\"</li>
+    </ul>
+
+    <h3>How do I receive/decrypt a message?</h3>
+    <ul>
+        <li>Choose your chat companion from the contacts icon (person symbol) and copy the message to your clipboard. Then, click on the \"unlock\" button (open lock icon).</li>
+        <li>The decrypted message will be shown in the PrivacyKeyboard input field.</li>
+    </ul>
+
+    <h3>How can I view previous messages with my chat companion?</h3>
+    <ul>
+        <li>Select your chat companion from the contacts icon (person symbol) and then click on the \"conversation history\" button in the main view (Chat icon).</li>
+        <li>Keep in mind that if you remove the contact, the conversation history will also be deleted!</li>
+    </ul>
+
+    <h3>How can I verify my chat companion\'s identity?</h3>
+    <ul>
+        <li>Next to the chat companion\'s name in the contacts icon (person symbol) is a verified/unverified icon (shield symbol).</li>
+        <li>Click on this symbol, and your shared security code will be displayed. Compare this code with your chat companion\'s code.</li>
+        <li>If the codes are the same, click the \"tick\" button, and your contact will be marked as verified.</li>
+    </ul>
+
+    <h3>What are the text modes, and how do I toggle between them?</h3>
+    <ul>
+        <li>There are two modes for sending your encrypted messages.</li>
+        <li>In Brave mode (paw icon), public keys and other information are visible in their original format. In Stego mode(eye icon), all details are hidden within a decoy text.</li>
+        <li>In both modes, messages remain encrypted and secure from third-party access.</li>
+        <li>You can switch between these modes by clicking on the paw/eye icon in the PrivacyKeyboard input field on the left.</li>
+    </ul>
+
+    <h3>What is an update message?</h3>
+    <ul>
+        <li>Every 30 days, your signed prekey will be updated.</li>
+        <li>A special message containing your new key details and an encrypted message is sent automatically.</li>
+        <li>This process requires no additional steps from you or your chat companion, as the message is generated automatically with your next encrypted message.</li>
+    </ul>
+</main>
+
+	</body>
+</html>]]></string>
+  <string name="e2ee_stego_human_origin" translatable="false">The story of human origins begins millions of years ago in Africa. Early ancestors of humans, known as hominins, first appeared about 6 to 7 million years ago. Over time, these hominins evolved various adaptations that would eventually lead to modern humans. The development of bipedalism, or the ability to walk on two legs, was a significant evolutionary step. This adaptation allowed early humans to travel long distances more efficiently and to use their hands for tool-making and other complex tasks.
+    As hominins continued to evolve, the genus Homo emerged around 2.5 million years ago. The earliest members of this genus, such as Homo habilis, are believed to have used simple stone tools. These early humans had larger brains than their predecessors, which allowed them to develop more sophisticated tools and social behaviors. Over hundreds of thousands of years, the genus Homo evolved into several different species, including Homo erectus, who were the first to leave Africa and spread across Asia and Europe.
+    About 300,000 years ago, Homo sapiens, the species to which all modern humans belong, appeared in Africa. These early humans had even larger brains and more advanced tool-making skills than their ancestors. They created art, engaged in complex social interactions, and developed early forms of language and culture. Around 70,000 years ago, Homo sapiens began migrating out of Africa in a series of waves, eventually spreading to every continent except Antarctica.
+    As Homo sapiens encountered other human species, such as Neanderthals and Denisovans, they sometimes interbred, leaving genetic traces that are still present in modern human populations today. Over time, Homo sapiens became the dominant species due to their adaptability, cooperation, and ability to innovate. By about 10,000 years ago, humans had developed agriculture, leading to the rise of civilizations and the modern world as we know it.
+    The study of human origins continues to evolve as new fossil discoveries and advances in genetics provide deeper insights into the complex journey of our species. Today, scientists use a combination of paleontology, archaeology, and molecular biology to piece together the story of how humans came to be, revealing a rich tapestry of evolution, adaptation, and survival.
+</string>
+  <string name="e2ee_stego_computer_science_history" translatable="false">The history of computer science traces back to the early concepts of computation and the development of mathematical logic. One of the earliest milestones was the invention of the mechanical calculator in the 17th century by Blaise Pascal and later improved by Gottfried Wilhelm Leibniz. These devices laid the groundwork for the concept of automation in calculations. In the 19th century, Charles Babbage, often regarded as the \"father of the computer,\" designed the first mechanical computer known as the Analytical Engine. Although it was never completed in his lifetime, Babbage\'s design included the fundamental concepts of a modern computer, such as the use of punched cards for input, a memory unit, and a central processing unit (CPU). Ada Lovelace, a mathematician who collaborated with Babbage, is credited with writing the first algorithm intended to be processed by a machine, earning her recognition as the world\'s first computer programmer. The field of computer science took a significant leap forward in the 20th century with the advent of electronic computers. Alan Turing, a British mathematician, made profound contributions to the theoretical foundation of computer science with his concept of the Turing machine, a mathematical model that could simulate any computational process. His work during World War II, particularly in breaking the Enigma code, demonstrated the practical applications of computing technology. The first fully operational electronic computer, the Electronic Numerical Integrator and Computer (ENIAC), was developed in 1945 by John Presper Eckert and John Mauchly. ENIAC was capable of performing thousands of calculations per second, marking the beginning of the electronic computing era. This period also saw the development of stored-program architecture, which allowed computers to store instructions in memory, a concept proposed by John von Neumann. The subsequent decades witnessed rapid advancements in computer science. The invention of the transistor in 1947 by William Shockley, John Bardeen, and Walter Brattain revolutionized computer design, leading to smaller, faster, and more reliable machines. This paved the way for the development of integrated circuits and microprocessors, which would eventually lead to the personal computer revolution in the 1970s and 1980s. During the same period, programming languages evolved from assembly language to high-level languages such as Fortran, developed by IBM in the 1950s, and later languages like C, developed by Dennis Ritchie in the 1970s. These languages made it easier for people to write complex software and contributed to the growth of the software industry. The emergence of the internet in the late 20th century, initially developed as ARPANET by the U.S. Department of Defense, transformed computer science by enabling global communication and the exchange of information. This era also saw the rise of artificial intelligence, with early pioneers like Marvin Minsky and John McCarthy laying the groundwork for the development of intelligent systems. Today, computer science continues to evolve rapidly, with advancements in fields such as machine learning, quantum computing, and cybersecurity. The ongoing development of computer technology shapes every aspect of modern life, from healthcare and finance to education and entertainment. The study of computer science remains at the forefront of innovation, driving progress and enabling new possibilities for the future.
+
+</string>
+</resources>

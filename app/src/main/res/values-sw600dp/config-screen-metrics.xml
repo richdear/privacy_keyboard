@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+
+-->
+
+<resources>
+  <!-- Must be aligned with {@link Constants#SCREEN_METRICS_SMALL_TABLET}. -->
+  <integer name="config_screen_metrics">3</integer>
+</resources>

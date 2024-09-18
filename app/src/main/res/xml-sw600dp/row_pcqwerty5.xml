@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+
+-->
+
+<merge xmlns:latin="http://schemas.android.com/apk/res-auto">
+  <Row latin:keyWidth="7.0%p">
+    <Key
+      latin:keyWidth="9.0%p"
+      latin:keyStyle="settingsKeyStyle" />
+    <switch>
+      <case latin:languageSwitchKeyEnabled="true">
+        <Spacer latin:keyWidth="13%p" />
+        <Key
+          latin:keyStyle="languageSwitchKeyStyle"
+          latin:keyWidth="9.0%p" />
+        <Key
+          latin:keyStyle="spaceKeyStyle"
+          latin:keyWidth="40.0%p" />
+      </case>
+      <default>
+        <Spacer latin:keyWidth="20%p" />
+        <Key
+          latin:keyStyle="spaceKeyStyle"
+          latin:keyWidth="42.0%p" />
+      </default>
+    </switch>
+    <Spacer latin:keyWidth="29%p" />
+  </Row>
+</merge>

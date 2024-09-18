@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+
+-->
+
+<merge xmlns:latin="http://schemas.android.com/apk/res-auto">
+  <include latin:keyboardLayout="@xml/key_styles_common" />
+  <Row
+    latin:keyLabelFlags="fontNormal"
+    latin:keyWidth="10%p">
+    <include latin:keyboardLayout="@xml/rowkeys_bengali_bijoy1" />
+  </Row>
+  <Row
+    latin:keyLabelFlags="fontNormal"
+    latin:keyWidth="10%p">
+    <include
+      latin:keyboardLayout="@xml/rowkeys_bengali_bijoy2"
+      latin:keyXPos="5%p" />
+  </Row>
+  <Row
+    latin:keyLabelFlags="fontNormal"
+    latin:keyWidth="10%p">
+    <Key
+      latin:keyStyle="shiftKeyStyle"
+      latin:keyWidth="14%p" />
+    <include
+      latin:keyXPos="15%p"
+      latin:keyboardLayout="@xml/rowkeys_bengali_bijoy3" />
+    <Key
+      latin:keyStyle="deleteKeyStyle"
+      latin:keyXPos="86%p"
+      latin:keyWidth="14%p" />
+  </Row>
+  <include latin:keyboardLayout="@xml/row_qwerty4" />
+</merge>

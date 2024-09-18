@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+
+ -->
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="vibrate_on_keypress">"Vibrēt, nospiežot taustiņu"</string>
+  <string name="sound_on_keypress">"Skaņa, nospiežot taustiņu"</string>
+  <string name="popup_on_keypress">"Parādās, nospiežot taustiņu"</string>
+  <string name="settings_screen_preferences">"Preferences"</string>
+  <string name="settings_screen_theme">"Motīvs"</string>
+  <string name="abbreviation_unit_milliseconds">"<xliff:g id="MILLISECONDS">%s</xliff:g> ms"</string>
+  <string name="settings_system_default">"Sistēmas noklusējums"</string>
+  <string name="auto_cap">"Automātiska lielo burtu lietošana"</string>
+  <string name="auto_cap_summary">"Katra teikuma pirmo vārdu rakstīt ar lielo burtu."</string>
+  <string name="select_language">"Valodas"</string>
+  <string name="locale_name_en_GB">"Angļu valoda (Lielbritānija)"</string>
+  <string name="locale_name_en_US">"Angļu valoda (ASV)"</string>
+  <string name="locale_name_es_US">"Spāņu (ASV)"</string>
+  <string name="locale_name_hi_ZZ">"Hindi–angļu valoda"</string>
+  <string name="locale_name_sr_ZZ">"Serbu (latīņu)"</string>
+  <string name="subtype_traditional">"tradicionālā"</string>
+  <string name="subtype_compact">"kompaktā"</string>
+  <string name="add">"Pievienot"</string>
+  <string name="remove">"Noņemt"</string>
+  <string name="prefs_keypress_vibration_duration_settings">"Taust. nosp. vibrācijas ilgums"</string>
+  <string name="prefs_keypress_sound_volume_settings">"Taustiņu nosp. skaņas skaļums"</string>
+  <string name="prefs_key_longpress_timeout_settings">"Taustiņa ilgās nosp. noildze"</string>
+  <string name="button_default">"Noklusējums"</string>
+</resources>

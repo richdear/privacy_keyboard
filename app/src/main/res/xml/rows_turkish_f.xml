@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+
+-->
+
+<merge xmlns:latin="http://schemas.android.com/apk/res-auto">
+  <Row latin:keyWidth="8.3%p">
+    <include latin:keyboardLayout="@xml/rowkeys_turkish_f1" />
+  </Row>
+  <Row latin:keyWidth="8.3%p">
+    <include
+      latin:keyboardLayout="@xml/rowkeys_turkish_f2"
+      latin:keyXPos="4.35%p" />
+  </Row>
+  <Row latin:keyWidth="8%p">
+    <Key
+      latin:keyStyle="shiftKeyStyle"
+      latin:keyWidth="13%p" />
+    <include
+      latin:keyXPos="14%p"
+      latin:keyboardLayout="@xml/rowkeys_turkish_f3" />
+    <Key
+      latin:keyStyle="deleteKeyStyle"
+      latin:keyXPos="87%p"
+      latin:keyWidth="13%p" />
+  </Row>
+  <include latin:keyboardLayout="@xml/row_qwerty4" />
+</merge>

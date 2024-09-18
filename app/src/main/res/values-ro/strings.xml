@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+
+ -->
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="vibrate_on_keypress">"Vibrare la apăsarea tastei"</string>
+  <string name="sound_on_keypress">"Sunet la apăsarea tastei"</string>
+  <string name="popup_on_keypress">"Pop-up la apăsarea tastei"</string>
+  <string name="settings_screen_preferences">"Preferințe"</string>
+  <string name="settings_screen_key_press">Apăsarea tastelor</string>
+  <string name="settings_screen_appearance">Aspect</string>
+  <string name="settings_screen_theme">"Temă"</string>
+  <string name="abbreviation_unit_milliseconds">"<xliff:g id="MILLISECONDS">%s</xliff:g> msec."</string>
+  <string name="settings_system_default">"Valoare prestabilită"</string>
+  <string name="auto_cap">"Scriere automată cu majuscule"</string>
+  <string name="auto_cap_summary">"Scrie cu majusculă primul cuvânt din fiecare propoziție"</string>
+  <string name="select_language">"Limbi"</string>
+  <string name="locale_name_en_GB">"engleză (Regatul Unit)"</string>
+  <string name="locale_name_en_US">"engleză (S.U.A.)"</string>
+  <string name="locale_name_es_US">"spaniolă (S.U.A.)"</string>
+  <string name="locale_name_hi_ZZ">"Hinglish"</string>
+  <string name="locale_name_sr_ZZ">"Sârbă (caractere latine)"</string>
+  <string name="subtype_traditional">"tradițională"</string>
+  <string name="subtype_compact">"Compact"</string>
+  <string name="add">"Adăugați"</string>
+  <string name="remove">"Eliminați"</string>
+  <string name="prefs_keypress_vibration_duration_settings">"Vibrare după apăsarea tastei"</string>
+  <string name="prefs_keypress_sound_volume_settings">"Sunet la apăsarea tastelor"</string>
+  <string name="prefs_key_longpress_timeout_settings">"Timpul apăsării lungi a tastei"</string>
+  <string name="button_default">"Prestabilit"</string>
+  <string name="prefs_keyboard_height_settings">Înălțime tastatură</string>
+  <string name="keyboard_color">Setează culoare personalizată</string>
+  <string name="hide_special_chars">Ascunde caracterele speciale</string>
+  <string name="hide_language_switch_key">Ascunde butonul de schimbare limbă</string>
+  <string name="pref_enable_ime_switch">Treceți la alte tastaturi</string>
+  <string name="show_number_row">Arată un rând separat cu cifre</string>
+  <string name="space_swipe">Glisarea pe tasta Spațiu mută cursorul</string>
+  <string name="delete_swipe">Ștergere glisare</string>
+  <string name="matching_navbar_color">Utilizează o culoare potrivită pentru bara de navigare</string>
+  <string name="setup_message">PrivacyKeyboard nu este activată. Atingeți OK pentru a deschide setările de Limbă și metode de introducere. Va trebui să selectați PrivacyKeyboard în lista de tastaturi pentru a o putea folosi.</string>
+  <string name="user_languages">Limbi de tastatură activate</string>
+  <string name="add_language">Adăugați limba</string>
+  <string name="remove_language">Eliminați limba</string>
+  <string name="generic_language_layouts"><xliff:g id="LANGUAGE_NAME" example="English (US)">%s</xliff:g> modele de tastatură</string>
+  <string name="change_keyboard">Schimbați tastatura</string>
+</resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+
+ -->
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="vibrate_on_keypress">"Vibrar al pulsar teclas"</string>
+  <string name="sound_on_keypress">"Sonar al pulsar las teclas"</string>
+  <string name="popup_on_keypress">"Aviso emergente al pulsar tecla"</string>
+  <string name="settings_screen_preferences">"Preferencias"</string>
+  <string name="settings_screen_theme">"Tema"</string>
+  <string name="settings_system_default">"Predeterminado/a"</string>
+  <string name="auto_cap">"Mayúsculas automáticas"</string>
+  <string name="auto_cap_summary">"Escribe con mayúscula la primera palabra de cada frase"</string>
+  <string name="select_language">"Idiomas"</string>
+  <string name="locale_name_en_GB">"Inglés (Reino Unido)"</string>
+  <string name="locale_name_en_US">"Inglés (EE.UU.)"</string>
+  <string name="locale_name_es_US">"Español (EE.UU.)"</string>
+  <string name="locale_name_hi_ZZ">"Hinglish"</string>
+  <string name="locale_name_sr_ZZ">"Serbio (latino)"</string>
+  <string name="subtype_traditional">"tradicional"</string>
+  <string name="subtype_compact">"compacto"</string>
+  <string name="add">"Agregar"</string>
+  <string name="remove">"Eliminar"</string>
+  <string name="prefs_keypress_vibration_duration_settings">"Duración de la vibración"</string>
+  <string name="prefs_keypress_sound_volume_settings">"Volumen al presionar teclas"</string>
+  <string name="prefs_key_longpress_timeout_settings">"Demora al mantener presionado"</string>
+  <string name="button_default">"Predeterminado"</string>
+</resources>

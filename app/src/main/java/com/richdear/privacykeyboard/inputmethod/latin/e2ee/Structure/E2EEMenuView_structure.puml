@@ -1,0 +1,1968 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": false,
+    "cutInterfaceStructures": false,
+    "cutDataStructures": false,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 6,
+    "backwardDepth": 6,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "ForwardOnly" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showClassGenericTypes": true,
+    "showMethods": true,
+    "showMethodParameterNames": true,
+    "showMethodParameterTypes": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 2,
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "com.richdear.privacykeyboard.inputmethod.latin.e2ee.E2EEMenuView",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_1551067314 { 
+   	label=richdear
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   subgraph cluster_1287280433 { 
+   	label=privacykeyboard
+	labeljust=l
+	fillcolor="#d8d8d8"
+	style=filled
+   
+   Account1190768954[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Account</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+   contactList: ArrayList&lt;Contact&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   deviceId: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   identityKeyPair: IdentityKeyPair [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   metadataStore: PreKeyMetadataAbstractStore [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   name: String [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   signalProtocolAddress: SignalProtocolAddress [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   signalProtocolStore: SignalProtocolStoreFullImplementation [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   unencryptedMessages: ArrayList&lt;MessageStorage&gt; [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ addContactToContactList(contact: Contact)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ addUnencryptedMessage(contact: Contact, storageMessage: MessageStorage)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ removeAllUnencryptedMessages(contact: Contact)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ updateContactInContactList(contact: Contact)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Adapter1797059[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Adapter</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ onCodeInput(primaryCode: int, x: int, y: int, isKeyRepeat: boolean)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onCustomRequest(requestCode: int): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onFinishSlidingInput()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onMoveDeletePointer(steps: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onMovePointer(steps: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onPressKey(primaryCode: int, repeatCount: int, isSinglePointer: boolean)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onReleaseKey(primaryCode: int, withSliding: boolean)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onTextInput(text: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onUpWithDeletePointerActive()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+ApplicationUtils428474958[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)ApplicationUtils</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ getActivityTitleResId(context: Context, cls: Class&lt;? extends Activity&gt;): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getVersionCode(context: Context): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getVersionName(context: Context): String</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+AudioAndHapticFeedbackManager1270398895[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)AudioAndHapticFeedbackManager</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   mAudioManager: AudioManager [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mSettingsValues: SettingsValues [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mSoundOn: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mVibrator: Vibrator [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ init(context: Context)</TD></TR>
+<TR><TD ALIGN="LEFT" >- initInternal(context: Context)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onRingerModeChanged()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onSettingsChanged(settingsValues: SettingsValues)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ performAudioFeedback(code: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ performHapticFeedback(viewToPerformHapticFeedbackOn: View)</TD></TR>
+<TR><TD ALIGN="LEFT" >- reevaluateIfSoundIsOn(): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ vibrate(milliseconds: long)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+BraveEncoder1421070457[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)BraveEncoder</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ decode(encodedText: String): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ encode(message: String): String</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+CapsModeUtils428474958[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)CapsModeUtils</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ flagsToString(capsFlags: int): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getCapsMode(cs: CharSequence, reqModes: int, spacingAndPunctuations: SpacingAndPunctuations): int</TD></TR>
+<TR><TD ALIGN="LEFT" >- isStartPunctuation(codePoint: int): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Constants917644022[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Constants</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ isLetterCode(code: int): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ isValidCoordinate(coordinate: int): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ printableCode(code: int): String</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Contact1675833460[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Contact</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   deviceId: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   firstName: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   isVerified: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   lastName: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   signalProtocolAddress: SignalProtocolAddress [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   signalProtocolAddressName: String [0..1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+DebugFlags898462502[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)DebugFlags</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ init(prefs: SharedPreferences)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+DebugLogUtils428474958[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)DebugLogUtils</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ getStackTrace(limit: int): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ l(args: Object...)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ r(args: Object...)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ s(o: Object): String</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+DialogUtils428474958[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)DialogUtils</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ getPlatformDialogThemeContext(context: Context): Context</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+E2EEInputConnection1270398895[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)E2EEInputConnection</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   mBatchEditNesting: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mTextView: TextView [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ beginBatchEdit(): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ clearMetaKeyStates(states: int): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ commitCompletion(text: CompletionInfo): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ commitCorrection(correctionInfo: CorrectionInfo): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ commitText(text: CharSequence, newCursorPosition: int): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ endBatchEdit(): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getExtractedText(request: ExtractedTextRequest, flags: int): ExtractedText</TD></TR>
+<TR><TD ALIGN="LEFT" >+ performContextMenuAction(id: int): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ performEditorAction(actionCode: int): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ performPrivateCommand(action: String, data: Bundle): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ requestCursorUpdates(cursorUpdateMode: int): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+E2EEMenu1648205996[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)E2EEMenu</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   CHAR_THRESHOLD_BRAVE: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   CHAR_THRESHOLD_STEGO: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   INFO_CONTACT_ALREADY_EXISTS: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   INFO_CONTACT_INVALID: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   INFO_SESSION_CREATION_FAILED: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   messgaeContext: Context [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ checkMessageLengthForEncodingMethod(message: String, encodingMethod: Encoder, isPreKeyResponse: boolean)</TD></TR>
+<TR><TD ALIGN="LEFT" ># clearClipboard()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ createAndAddContactToContacts(firstName: CharSequence, lastName: CharSequence, signalProtocolAddressName: String, deviceId: int): Contact</TD></TR>
+<TR><TD ALIGN="LEFT" >+ createSessionWithContact(chosenContact: Contact, messageFrame: MessageFrame, recipientProtocolAddress: SignalProtocolAddress): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ decodeMessage(encodedMessage: String): String</TD></TR>
+<TR><TD ALIGN="LEFT" ># decryptMessage(messageFrame: MessageFrame, sender: Contact): CharSequence</TD></TR>
+<TR><TD ALIGN="LEFT" >+ encode(message: String, encoder: Encoder): String</TD></TR>
+<TR><TD ALIGN="LEFT" ># encryptMessage(unencryptedMessage: String, signalProtocolAddress: SignalProtocolAddress, encoder: Encoder): CharSequence</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getContactFromFrame(messageFrame: MessageFrame): Object</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getFingerprint(contact: Contact): Fingerprint</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getMessageType(messageFrame: MessageFrame): MessageType</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getUnencryptedMessages(contact: Contact): List&lt;MessageStorage&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ removeContact(contact: Contact)</TD></TR>
+<TR><TD ALIGN="LEFT" >- updateSessionWithNewSignedPreKeyIfNecessary(messageFrame: MessageFrame, sender: Contact)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ verifyContact(contact: Contact)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+E2EEMenuView1648205996[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)E2EEMenuView</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   INFO_ADD_CONTACT: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   INFO_ADD_NAME_ADD_CONTACT: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   INFO_CANNOT_DECRYPT_OWN_MESSAGES: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   INFO_CHOOSE_CONTACT_FIRST: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   INFO_CONTACT_CREATION_FAILED: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   INFO_CONTACT_LIST: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   INFO_HELP: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   INFO_MESSAGES_LIST_DEFAULT: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   INFO_MESSAGE_DECRYPTION_FAILED: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   INFO_MESSAGE_ENCRYPTION_FAILED: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   INFO_NO_CONTACT_CHOSEN: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   INFO_NO_MESSAGE_TO_DECRYPT: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   INFO_NO_MESSAGE_TO_ENCRYPT: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   INFO_NO_SAVED_MESSAGES: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   INFO_PRE_KEY_AND_SIGNAL_MESSAGE_DETECTED: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   INFO_PRE_KEY_DETECTED: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   INFO_SESSION_CREATION_FAILED: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   INFO_SIGNAL_MESSAGE_DETECTED: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   INFO_SIGNAL_MESSAGE_NO_CONTACT_FOUND: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   INFO_UPDATE_CONTACT_FAILED: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   INFO_VERIFY_CONTACT: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   chosenContact: Contact [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   encodingMethod: Encoder [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mAddContactAddButton: ImageButton [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mAddContactCancelButton: ImageButton [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mAddContactFirstNameInputEditText: EditText [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mAddContactInfoTextView: TextView [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mAddContactLastNameInputEditText: EditText [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mChatLogsButton: ImageButton [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mClearUserInputButton: ImageButton [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mCodes: TextView[] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mContactList: ListView [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mContactListInfoTextView: TextView [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mContactListInviteButton: ImageButton [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mContactListReturnButton: ImageButton [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mDecryptButton: ImageButton [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mEncryptButton: ImageButton [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mHelpInfoTextView: TextView [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mHelpVersionTextView: TextView [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mHelpViewReturnButton: ImageButton [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mHelpViewTextView: TextView [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mInfoTextView: TextView [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mInputEditText: EditText [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mLayoutE2EEAddContactView: LinearLayout [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mLayoutE2EEContactListView: LinearLayout [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mLayoutE2EEHelpView: LinearLayout [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mLayoutE2EEMainView: LinearLayout [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mLayoutE2EEMessagesListView: LinearLayout [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mLayoutE2EEVerifyContactView: LinearLayout [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mMessagesList: ListView [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mMessagesListInfoTextView: TextView [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mMessagesListReturnButton: ImageButton [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mRecipientButton: ImageButton [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mRichInputConnection: RichInputConnection [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mSelectEncodingBraveButton: ImageButton [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mSelectEncodingStegoButton: ImageButton [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mShowHelpButton: ImageButton [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mVerifyContactInfoTextView: TextView [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mVerifyContactReturnButton: ImageButton [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mVerifyContactTableView: TableLayout [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mVerifyContactVerifyButton: ImageButton [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   messageE2EEMainStrip: ViewGroup [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   messageE2EEStrip: E2EEMenu [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   messageE2EEStripVisibilityGroup: E2EEStripVisibilityGroup [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   messageListener: Listener [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   messageMainKeyboardView: MainKeyboardView [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >- abortContactAdding()</TD></TR>
+<TR><TD ALIGN="LEFT" >- addContact(messageFrame: MessageFrame)</TD></TR>
+<TR><TD ALIGN="LEFT" >- changeHeightOfMessageListView(messages: List&lt;MessageStorage&gt;)</TD></TR>
+<TR><TD ALIGN="LEFT" >- changeImageButtonState(imageButton: ImageButton, state: ButtonState)</TD></TR>
+<TR><TD ALIGN="LEFT" >- changeVisibilityInputFieldButtons(shouldBeVisible: boolean)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ clear()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ clearFocusEditTextView()</TD></TR>
+<TR><TD ALIGN="LEFT" >- clearUserInputString()</TD></TR>
+<TR><TD ALIGN="LEFT" >- createAddContactAddClickListener(messageFrame: MessageFrame)</TD></TR>
+<TR><TD ALIGN="LEFT" >- createAddContactCancelClickListener()</TD></TR>
+<TR><TD ALIGN="LEFT" >- createButtonChatLogsClickListener()</TD></TR>
+<TR><TD ALIGN="LEFT" >- createButtonClearUserInputClickListener()</TD></TR>
+<TR><TD ALIGN="LEFT" >- createButtonDecryptClickListener()</TD></TR>
+<TR><TD ALIGN="LEFT" >- createButtonEncryptClickListener()</TD></TR>
+<TR><TD ALIGN="LEFT" >- createButtonRecipientClickListener()</TD></TR>
+<TR><TD ALIGN="LEFT" >- createButtonSelectEncryptionMethodClickListener()</TD></TR>
+<TR><TD ALIGN="LEFT" >- createButtonShowHelpClickListener()</TD></TR>
+<TR><TD ALIGN="LEFT" >- createContactListInviteButtonClickListener()</TD></TR>
+<TR><TD ALIGN="LEFT" >- createContactListReturnButtonClickListener()</TD></TR>
+<TR><TD ALIGN="LEFT" >- createHelpReturnButtonClickListener()</TD></TR>
+<TR><TD ALIGN="LEFT" >- createMessagesListReturnButtonClickListener()</TD></TR>
+<TR><TD ALIGN="LEFT" >- createVerifyContactReturnButtonClickListener()</TD></TR>
+<TR><TD ALIGN="LEFT" >- createVerifyContactVerifyButtonClickListener()</TD></TR>
+<TR><TD ALIGN="LEFT" >- decryptMessageAndShowMessageInMainInputField(messageFrame: MessageFrame, sender: Contact, isSessionCreation: boolean)</TD></TR>
+<TR><TD ALIGN="LEFT" >- decryptMessageInClipboard()</TD></TR>
+<TR><TD ALIGN="LEFT" >- encryptAndSendInputFieldContent()</TD></TR>
+<TR><TD ALIGN="LEFT" >- getSegments(fingerprint: Fingerprint, segmentCount: int): String[]</TD></TR>
+<TR><TD ALIGN="LEFT" >- initClipboardListenerToChangeStateOfDecryptButton()</TD></TR>
+<TR><TD ALIGN="LEFT" >- loadContactsIntoContactsListView()</TD></TR>
+<TR><TD ALIGN="LEFT" >- loadFingerprintInVerifyContactView()</TD></TR>
+<TR><TD ALIGN="LEFT" >- loadMessagesIntoMessagesListView()</TD></TR>
+<TR><TD ALIGN="LEFT" >- processPreKeyResponse(messageFrame: MessageFrame, sender: Contact)</TD></TR>
+<TR><TD ALIGN="LEFT" >- processSignalMessage(messageFrame: MessageFrame, sender: Contact)</TD></TR>
+<TR><TD ALIGN="LEFT" >- processUpdatedPreKeyResponse(messageFrame: MessageFrame, sender: Contact)</TD></TR>
+<TR><TD ALIGN="LEFT" >- providedContactInformationIsValid(firstName: CharSequence, lastName: CharSequence): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >- refreshContactInMessageInfoField()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ removeContact(contact: Contact)</TD></TR>
+<TR><TD ALIGN="LEFT" >- resetAddContactInputTextFields()</TD></TR>
+<TR><TD ALIGN="LEFT" >- resetChosenContactAndInfoText()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ selectContact(contact: Contact)</TD></TR>
+<TR><TD ALIGN="LEFT" >- sendEncryptedMessageToApplication(encryptedMessage: CharSequence)</TD></TR>
+<TR><TD ALIGN="LEFT" >- sendPreKeyResponseMessageToApplication()</TD></TR>
+<TR><TD ALIGN="LEFT" >- showAddContactView(messageFrame: MessageFrame)</TD></TR>
+<TR><TD ALIGN="LEFT" >- showChosenContactInMainInfoField()</TD></TR>
+<TR><TD ALIGN="LEFT" >- showOnlyUIView(uiView: UIView)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ verifyContact(contact: Contact)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+E2EEStripVisibilityGroup115521613[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)E2EEStripVisibilityGroup</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   mE2EEStrip: View [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mE2EEStripView: View [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ showE2EEMenu()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+EditorInfoCompatUtils482724919[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)EditorInfoCompatUtils</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ getPrimaryHintLocale(editorInfo: EditorInfo): Locale</TD></TR>
+<TR><TD ALIGN="LEFT" >+ imeActionName(imeOptions: int): String</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+EncodingHelper1421070457[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)EncodingHelper</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ compressString(message: String): byte[]</TD></TR>
+<TR><TD ALIGN="LEFT" >+ convertBinaryToByteArray(binary: String): byte[]</TD></TR>
+<TR><TD ALIGN="LEFT" >+ convertBinaryToInvisibleString(binaryString: String): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ convertByteArrayToBinary(input: byte[]): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ convertInvisibleStringToBinary(encodedMessage: String): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ deSimplifyJsonKeys(simplifiedJSON: String): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ decompressString(compressedMessage: byte[]): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ encodedTextContainsInvisibleCharacters(encodedText: String): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >- getMapKeyFromValue(value: String): String</TD></TR>
+<TR><TD ALIGN="LEFT" >- initSimplifiedJsonMap(): HashMap&lt;String, String&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ minifyJSON(json: String): String</TD></TR>
+<TR><TD ALIGN="LEFT" >- simplifyJsonKeys(json: String): String</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Event1264545605[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Event</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+   mCodePoint: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mEventType: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mFlags: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   mKeyCode: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   mNextEvent: Event [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   mText: CharSequence [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   mX: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   mY: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ createSoftwareKeypressEvent(codePoint: int, keyCode: int, x: int, y: int, isKeyRepeat: boolean): Event</TD></TR>
+<TR><TD ALIGN="LEFT" >+ createSoftwareTextEvent(text: CharSequence, keyCode: int): Event</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+HTMLFormatter1417210876[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)HTMLFormatter</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ replaceHtmlCharacters(item: String): String</TD></TR>
+<TR><TD ALIGN="LEFT" >- replaceHtmlNBSPCharacters(item: String): String</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+IdentityKeyStoreFullImplementation606348006[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)IdentityKeyStoreFullImplementation</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   identityKeyPair: IdentityKeyPair [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   localRegistrationId: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   trustedKeys: List&lt;TrustedKey&gt; [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ getIdentity(address: SignalProtocolAddress): IdentityKey</TD></TR>
+<TR><TD ALIGN="LEFT" >- getIdentityKeyFromEntryInList(address: SignalProtocolAddress): IdentityKey</TD></TR>
+<TR><TD ALIGN="LEFT" >+ isTrustedIdentity(address: SignalProtocolAddress, identityKey: IdentityKey, direction: Direction): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ saveIdentity(address: SignalProtocolAddress, identityKey: IdentityKey): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+InputLogic1836191373[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)InputLogic</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+   mConnection: RichInputConnection [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   mCurrentlyPressedHardwareKeys: TreeSet&lt;Long&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   mLatinIME: LatinIME [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mRecapitalizeStatus: RecapitalizeStatus [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ getCurrentAutoCapsState(settingsValues: SettingsValues, layoutSetName: String): int</TD></TR>
+<TR><TD ALIGN="LEFT" >- handleBackspaceEvent(event: Event, inputTransaction: InputTransaction)</TD></TR>
+<TR><TD ALIGN="LEFT" >- handleConsumedEvent(event: Event)</TD></TR>
+<TR><TD ALIGN="LEFT" >- handleFunctionalEvent(event: Event, inputTransaction: InputTransaction)</TD></TR>
+<TR><TD ALIGN="LEFT" >- handleLanguageSwitchKey()</TD></TR>
+<TR><TD ALIGN="LEFT" >- handleNonFunctionalEvent(event: Event, inputTransaction: InputTransaction)</TD></TR>
+<TR><TD ALIGN="LEFT" >- handleNonSeparatorEvent(event: Event)</TD></TR>
+<TR><TD ALIGN="LEFT" >- handleNonSpecialCharacterEvent(event: Event, inputTransaction: InputTransaction)</TD></TR>
+<TR><TD ALIGN="LEFT" >- handleSeparatorEvent(event: Event, inputTransaction: InputTransaction)</TD></TR>
+<TR><TD ALIGN="LEFT" >- layoutUsesAutoCaps(layoutSetName: String): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onCodeInput(settingsValues: SettingsValues, event: Event): InputTransaction</TD></TR>
+<TR><TD ALIGN="LEFT" >- onSettingsKeyPressed()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onSubtypeChanged()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onTextInput(settingsValues: SettingsValues, event: Event): InputTransaction</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onUpdateSelection(newSelStart: int, newSelEnd: int): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >- performEditorAction(actionId: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >- performRecapitalization(settingsValues: SettingsValues)</TD></TR>
+<TR><TD ALIGN="LEFT" >- performSpecificTldProcessingOnTextInput(text: String): String</TD></TR>
+<TR><TD ALIGN="LEFT" >- resetEntireInputState(newSelStart: int, newSelEnd: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ retryResetCachesAndReturnSuccess(tryResumeSuggestions: boolean, remainingTries: int, handler: UIHandler): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ sendDownUpKeyEvent(keyCode: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >- sendKeyCodePoint(codePoint: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ startInput()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+InputMethodSettingsFragment649143170[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)InputMethodSettingsFragment</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   mSettings: InputMethodSettingsImpl [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ onCreate(savedInstanceState: Bundle)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onResume()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+InputMethodSettingsImpl649143170[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)InputMethodSettingsImpl</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   mRichImm: RichInputMethodManager [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mSubtypeEnablerPreference: Preference [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >- getEnabledSubtypesLabel(richImm: RichInputMethodManager): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ init(context: Context, prefScreen: PreferenceScreen): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ updateEnabledSubtypeList()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+InputView1270398895[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)InputView</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   mKeyboardTopPaddingForwarder: KeyboardTopPaddingForwarder [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mMainKeyboardView: MainKeyboardView [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" ># onFinishInflate()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+InsetsOutlineProvider1736155668[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)InsetsOutlineProvider</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   mLastVisibleTopInsets: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mView: View [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ getOutline(view: View, outline: Outline)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+JsonUtil1675285450[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)JsonUtil</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ convertContactsList(classFromSharedPreferences: ArrayList&lt;Contact&gt;): ArrayList&lt;Contact&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ convertUnencryptedMessagesList(classFromSharedPreferences: ArrayList&lt;MessageStorage&gt;): ArrayList&lt;MessageStorage&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ fromJson(json: String, clazz: Class&lt;T&gt;): T</TD></TR>
+<TR><TD ALIGN="LEFT" >+ fromJson(json: String, typeRef: TypeReference&lt;T&gt;): T</TD></TR>
+<TR><TD ALIGN="LEFT" >+ fromJsonResponse(json: String, typeRef: TypeReference&lt;T&gt;): T</TD></TR>
+<TR><TD ALIGN="LEFT" >+ fromJsonResponse(body: String, clazz: Class&lt;T&gt;): T</TD></TR>
+<TR><TD ALIGN="LEFT" >+ toJson(object: Object): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ toJsonByteString(object: Object): ByteString</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+KeyboardState1755319567[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)KeyboardState</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   mAlphabetShiftState: AlphabetShiftState [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mIsAlphabetMode: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mIsInAlphabetUnshiftedFromShifted: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mIsInDoubleTapShiftKey: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mIsSymbolShifted: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mPrevMainKeyboardWasShiftLocked: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mPrevSymbolsKeyboardWasShifted: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mRecapitalizeMode: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mSavedKeyboardState: SavedKeyboardState [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mShiftKeyState: ShiftKeyState [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mSwitchActions: SwitchActions [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mSwitchState: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mSymbolKeyState: ModifierKeyState [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >- isSpaceOrEnter(c: int): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onEvent(event: Event, autoCapsFlags: int, recapitalizeMode: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onFinishSlidingInput(autoCapsFlags: int, recapitalizeMode: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onLoadKeyboard(autoCapsFlags: int, recapitalizeMode: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onPressKey(code: int, isSinglePointer: boolean, autoCapsFlags: int, recapitalizeMode: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >- onPressShift()</TD></TR>
+<TR><TD ALIGN="LEFT" >- onPressSymbol(autoCapsFlags: int, recapitalizeMode: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onReleaseKey(code: int, withSliding: boolean, autoCapsFlags: int, recapitalizeMode: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >- onReleaseShift(withSliding: boolean, autoCapsFlags: int, recapitalizeMode: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >- onReleaseSymbol(withSliding: boolean, autoCapsFlags: int, recapitalizeMode: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onResetKeyboardStateToAlphabet(autoCapsFlags: int, recapitalizeMode: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >- onRestoreKeyboardState(autoCapsFlags: int, recapitalizeMode: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onSaveKeyboardState()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onUpdateShiftState(autoCapsFlags: int, recapitalizeMode: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >- resetKeyboardStateToAlphabet(autoCapsFlags: int, recapitalizeMode: int)</TD></TR>
+<TR><TD ALIGN="LEFT" ># shiftModeToString(shiftMode: int): String</TD></TR>
+<TR><TD ALIGN="LEFT" >- stateToString(autoCapsFlags: int, recapitalizeMode: int): String</TD></TR>
+<TR><TD ALIGN="LEFT" >- switchStateToString(switchState: int): String</TD></TR>
+<TR><TD ALIGN="LEFT" >- toggleAlphabetAndSymbols(autoCapsFlags: int, recapitalizeMode: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >- toggleShiftInSymbols()</TD></TR>
+<TR><TD ALIGN="LEFT" >- updateAlphabetShiftState(autoCapsFlags: int, recapitalizeMode: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >- updateShiftStateForRecapitalize(recapitalizeMode: int)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+KeyboardSwitcher1145680732[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)KeyboardSwitcher</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   mCurrentInputView: InputView [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mCurrentTextColor: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mCurrentUiMode: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mKeyboardLayoutSet: KeyboardLayoutSet [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mKeyboardTextsSet: KeyboardTextsSet [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mKeyboardTheme: KeyboardTheme [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mKeyboardView: MainKeyboardView [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mLatinIME: LatinIME [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mMainKeyboardFrame: View [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mRichImm: RichInputMethodManager [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mState: KeyboardState [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mThemeContext: Context [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ cancelDoubleTapShiftKeyTimer()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ deallocateMemory()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ init(latinIme: LatinIME)</TD></TR>
+<TR><TD ALIGN="LEFT" >- initInternal(latinIme: LatinIME)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ isImeSuppressedByHardwareKeyboard(settingsValues: SettingsValues, toggleState: KeyboardSwitchState): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ isShowingKeyboardId(keyboardIds: int...): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ loadKeyboard(editorInfo: EditorInfo, settingsValues: SettingsValues, currentAutoCapsState: int, currentRecapitalizeState: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onCreateInputView(uiMode: int): View</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onEvent(event: Event, currentAutoCapsState: int, currentRecapitalizeState: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onFinishSlidingInput(currentAutoCapsState: int, currentRecapitalizeState: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onHideWindow()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onPressKey(code: int, isSinglePointer: boolean, currentAutoCapsState: int, currentRecapitalizeState: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onReleaseKey(code: int, withSliding: boolean, currentAutoCapsState: int, currentRecapitalizeState: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ requestUpdatingShiftState(autoCapsFlags: int, recapitalizeMode: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ resetKeyboardStateToAlphabet(currentAutoCapsState: int, currentRecapitalizeState: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ saveKeyboardState()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ startDoubleTapShiftKeyTimer()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ updateKeyboardTheme(uiMode: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >- updateKeyboardThemeAndContextThemeWrapper(context: Context, keyboardTheme: KeyboardTheme, uiMode: int): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+KeyboardTheme1145680732[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)KeyboardTheme</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+   mStyleId: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   mThemeId: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   mThemeName: String [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ getKeyboardTheme(context: Context): KeyboardTheme</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getKeyboardTheme(prefs: SharedPreferences): KeyboardTheme</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getKeyboardThemeName(themeId: int): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ saveKeyboardThemeId(themeId: int, prefs: SharedPreferences)</TD></TR>
+<TR><TD ALIGN="LEFT" ># searchKeyboardThemeById(themeId: int): KeyboardTheme</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+KeyboardView1145680732[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)KeyboardView</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   mClipRect: Rect [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   mCustomColor: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mDefaultKeyLabelFlags: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mFontMetrics: FontMetrics [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mFunctionalKeyBackground: Drawable [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mInvalidateAllKeys: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mInvalidatedKeys: HashSet&lt;Key&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mKeyBackground: Drawable [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mKeyBackgroundPadding: Rect [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mKeyDrawParams: KeyDrawParams [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mKeyHintLetterPadding: float [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mKeyShiftedLetterHintPadding: float [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mKeyTextShadowRadius: float [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mKeyVisualAttributes: KeyVisualAttributes [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mKeyboard: Keyboard [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mOffscreenBuffer: Bitmap [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mOffscreenCanvas: Canvas [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mPaint: Paint [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mSpacebarBackground: Drawable [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mSpacebarIconWidthRatio: float [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mVerticalCorrection: float [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >- blendAlpha(paint: Paint, alpha: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ deallocateMemory()</TD></TR>
+<TR><TD ALIGN="LEFT" ># drawIcon(canvas: Canvas, icon: Drawable, x: int, y: int, width: int, height: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >- freeOffscreenBuffer()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ invalidateAllKeys()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ invalidateKey(key: Key)</TD></TR>
+<TR><TD ALIGN="LEFT" >- maybeAllocateOffscreenBuffer(): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ newLabelPaint(key: Key): Paint</TD></TR>
+<TR><TD ALIGN="LEFT" ># onDetachedFromWindow()</TD></TR>
+<TR><TD ALIGN="LEFT" ># onDraw(canvas: Canvas)</TD></TR>
+<TR><TD ALIGN="LEFT" >- onDrawKey(key: Key, canvas: Canvas, paint: Paint)</TD></TR>
+<TR><TD ALIGN="LEFT" ># onDrawKeyBackground(key: Key, canvas: Canvas, background: Drawable)</TD></TR>
+<TR><TD ALIGN="LEFT" ># onDrawKeyTopVisuals(key: Key, canvas: Canvas, paint: Paint, params: KeyDrawParams)</TD></TR>
+<TR><TD ALIGN="LEFT" >- onDrawKeyboard(canvas: Canvas)</TD></TR>
+<TR><TD ALIGN="LEFT" ># onMeasure(widthMeasureSpec: int, heightMeasureSpec: int)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+LanguagesSettingsFragment649143170[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)LanguagesSettingsFragment</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   mAlertDialog: AlertDialog [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mRichImm: RichInputMethodManager [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mUnusedLocaleNames: CharSequence[] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mUnusedLocaleValues: String[] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mUsedLocaleNames: CharSequence[] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mUsedLocaleValues: String[] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mView: View [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >- buildContent()</TD></TR>
+<TR><TD ALIGN="LEFT" >- buildLanguagePreferences(locales: SortedSet&lt;Locale&gt;, group: PreferenceGroup, context: Context)</TD></TR>
+<TR><TD ALIGN="LEFT" >- getUnusedLocales(usedLocales: Set&lt;Locale&gt;, comparator: Comparator&lt;Locale&gt;): SortedSet&lt;Locale&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >- getUsedLocales(subtypes: Set&lt;Subtype&gt;, comparator: Comparator&lt;Locale&gt;): SortedSet&lt;Locale&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onCreate(icicle: Bundle)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onCreateOptionsMenu(menu: Menu, inflater: MenuInflater)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onCreateView(inflater: LayoutInflater, container: ViewGroup, savedInstanceState: Bundle): View</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onOptionsItemSelected(item: MenuItem): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onPrepareOptionsMenu(menu: Menu)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onStart()</TD></TR>
+<TR><TD ALIGN="LEFT" >- showAddLanguagePopup()</TD></TR>
+<TR><TD ALIGN="LEFT" >- showMultiChoiceDialog(names: CharSequence[], titleRes: int, positiveButtonRes: int, allowAllChecked: boolean, listener: OnMultiChoiceDialogAcceptListener)</TD></TR>
+<TR><TD ALIGN="LEFT" >- showRemoveLanguagePopup()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+LatinIME1270398895[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)LatinIME</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   mE2EEMenuView: E2EEMenuView [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   mHandler: UIHandler [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   mInputLogic: InputLogic [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mInputView: View [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mInsetsUpdater: InsetsUpdater [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   mKeyboardSwitcher: KeyboardSwitcher [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mLocale: Locale [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mOptionsDialog: AlertDialog [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mOriginalNavBarColor: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mOriginalNavBarFlags: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mRichImm: RichInputMethodManager [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mRichInputConnection: RichInputConnection [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mRingerModeChangeReceiver: BroadcastReceiver [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   mSettings: Settings [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >- clearNavigationBarColor()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ createSoftwareKeypressEvent(keyCodeOrCodePoint: int, keyX: int, keyY: int, isKeyRepeat: boolean): Event</TD></TR>
+<TR><TD ALIGN="LEFT" ># deallocateMemory()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ debugDumpStateAndCrashWithException(context: String)</TD></TR>
+<TR><TD ALIGN="LEFT" ># dump(fd: FileDescriptor, fout: PrintWriter, args: String[])</TD></TR>
+<TR><TD ALIGN="LEFT" >- getCodePointForKeyboard(codePoint: int): int</TD></TR>
+<TR><TD ALIGN="LEFT" >- hapticAndAudioFeedback(code: int, repeatCount: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ hideWindow()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ launchSettings()</TD></TR>
+<TR><TD ALIGN="LEFT" >- loadKeyboard()</TD></TR>
+<TR><TD ALIGN="LEFT" >- loadSettings()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onCodeInput(codePoint: int, x: int, y: int, isKeyRepeat: boolean)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onComputeInsets(outInsets: Insets)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onConfigurationChanged(conf: Configuration)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onCreate()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onCreateInputView(): View</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onCurrentSubtypeChanged()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onCustomRequest(requestCode: int): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onDestroy()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onEvaluateFullscreenMode(): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onEvent(event: Event)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onFinishInput()</TD></TR>
+<TR><TD ALIGN="LEFT" ># onFinishInputInternal()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onFinishInputView(finishingInput: boolean)</TD></TR>
+<TR><TD ALIGN="LEFT" ># onFinishInputViewInternal(finishingInput: boolean)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onFinishSlidingInput()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onMoveDeletePointer(steps: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onMovePointer(steps: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onPressKey(primaryCode: int, repeatCount: int, isSinglePointer: boolean)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onReleaseKey(primaryCode: int, withSliding: boolean)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onShowInputRequested(flags: int, configChange: boolean): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onStartInput(editorInfo: EditorInfo, restarting: boolean)</TD></TR>
+<TR><TD ALIGN="LEFT" ># onStartInputInternal(editorInfo: EditorInfo, restarting: boolean)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onStartInputView(editorInfo: EditorInfo, restarting: boolean)</TD></TR>
+<TR><TD ALIGN="LEFT" ># onStartInputViewInternal(editorInfo: EditorInfo, restarting: boolean)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onTextInput(rawText: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onUpWithDeletePointerActive()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onUpdateSelection(oldSelStart: int, oldSelEnd: int, newSelStart: int, newSelEnd: int, composingSpanStart: int, composingSpanEnd: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onWindowHidden()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onWindowShown()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ shouldShowLanguageSwitchKey(): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ shouldSwitchToOtherInputMethods(token: IBinder): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >- showInputMethodPicker(): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ switchToNextSubtype()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ updateFullscreenMode()</TD></TR>
+<TR><TD ALIGN="LEFT" >- updateSoftInputWindowLayoutParameters()</TD></TR>
+<TR><TD ALIGN="LEFT" >- updateStateAfterInputTransaction(inputTransaction: InputTransaction)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+ListAdapterContacts1636112371[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)ListAdapterContacts</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   mContacts: ArrayList&lt;Object&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mListener: ListAdapterContactInterface [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ getItem(position: int): Object</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getView(position: int, convertView: View, parent: ViewGroup): View</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+LocaleResourceUtils428474958[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)LocaleResourceUtils</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >- getDisplayLocale(localeString: String): Locale</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getLanguageDisplayNameInLocale(localeString: String): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getLanguageDisplayNameInSystemLocale(localeString: String): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getLocaleDisplayNameInLocale(localeString: String): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getLocaleDisplayNameInSystemLocale(localeString: String): String</TD></TR>
+<TR><TD ALIGN="LEFT" >- getLocaleDisplayNameInternal(localeString: String, displayLocale: Locale): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ init(context: Context)</TD></TR>
+<TR><TD ALIGN="LEFT" >- initLocked(context: Context)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+LocaleUtils917644022[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)LocaleUtils</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ constructLocaleFromString(localeString: String): Locale</TD></TR>
+<TR><TD ALIGN="LEFT" >+ findBestLocale(localeToMatch: Locale, options: Collection&lt;Locale&gt;): Locale</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getLocaleString(locale: Locale): String</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+MainKeyboardView1145680732[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)MainKeyboardView</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   mAltCodeKeyWhileTypingAnimAlpha: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mAltCodeKeyWhileTypingFadeinAnimator: ObjectAnimator [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mAltCodeKeyWhileTypingFadeoutAnimator: ObjectAnimator [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mBackgroundDimAlphaPaint: Paint [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mConfigShowMoreKeysKeyboardAtTouchedPoint: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mDrawingPreviewPlacerView: DrawingPreviewPlacerView [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mKeyDetector: KeyDetector [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mKeyPreviewChoreographer: KeyPreviewChoreographer [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mKeyPreviewDrawParams: KeyPreviewDrawParams [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mKeyboardActionListener: KeyboardActionListener [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mLanguageOnSpacebarAnimAlpha: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mLanguageOnSpacebarFadeoutAnimator: ObjectAnimator [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mLanguageOnSpacebarFinalAlpha: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mLanguageOnSpacebarFormatType: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mLanguageOnSpacebarHorizontalMargin: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mLanguageOnSpacebarTextColor: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mLanguageOnSpacebarTextRatio: float [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mLanguageOnSpacebarTextSize: float [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mMoreKeysKeyboardCache: WeakHashMap&lt;Key, Keyboard&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mMoreKeysKeyboardContainer: View [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mMoreKeysPanel: MoreKeysPanel [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mNonDistinctMultitouchHelper: NonDistinctMultitouchHelper [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mOriginCoords: int[] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mSpaceKey: Key [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mTimerHandler: TimerHandler [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ cancelAllOngoingEvents()</TD></TR>
+<TR><TD ALIGN="LEFT" >- cancelAndStartAnimators(animatorToCancel: ObjectAnimator, animatorToStart: ObjectAnimator)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ cancelDoubleTapShiftKeyTimer()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ closing()</TD></TR>
+<TR><TD ALIGN="LEFT" >- dismissKeyPreview(key: Key)</TD></TR>
+<TR><TD ALIGN="LEFT" >- dismissKeyPreviewWithoutDelay(key: Key)</TD></TR>
+<TR><TD ALIGN="LEFT" >- drawLanguageOnSpacebar(key: Key, canvas: Canvas, paint: Paint)</TD></TR>
+<TR><TD ALIGN="LEFT" >- fitsTextIntoWidth(width: int, text: String, paint: Paint): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getKeyX(x: int): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getKeyY(y: int): int</TD></TR>
+<TR><TD ALIGN="LEFT" >- installPreviewPlacerView()</TD></TR>
+<TR><TD ALIGN="LEFT" >- layoutLanguageOnSpacebar(paint: Paint, subtype: Subtype, width: int): String</TD></TR>
+<TR><TD ALIGN="LEFT" >- loadObjectAnimator(resId: int, target: Object): ObjectAnimator</TD></TR>
+<TR><TD ALIGN="LEFT" >- locatePreviewPlacerView()</TD></TR>
+<TR><TD ALIGN="LEFT" ># onAttachedToWindow()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onCancelMoreKeysPanel()</TD></TR>
+<TR><TD ALIGN="LEFT" ># onDetachedFromWindow()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onDismissMoreKeysPanel()</TD></TR>
+<TR><TD ALIGN="LEFT" ># onDrawKeyTopVisuals(key: Key, canvas: Canvas, paint: Paint, params: KeyDrawParams)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onHideWindow()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onKeyPressed(key: Key, withPreview: boolean)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onKeyReleased(key: Key, withAnimation: boolean)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onShowMoreKeysPanel(panel: MoreKeysPanel)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onTouchEvent(event: MotionEvent): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ processMotionEvent(event: MotionEvent): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >- showKeyPreview(key: Key)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ showMoreKeysKeyboard(key: Key, tracker: PointerTracker): MoreKeysPanel</TD></TR>
+<TR><TD ALIGN="LEFT" >+ startDisplayLanguageOnSpacebar(subtypeChanged: boolean, languageOnSpacebarFormatType: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ startDoubleTapShiftKeyTimer()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ startWhileTypingAnimation(fadeInOrOut: int)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+MessageStorage1675833460[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)MessageStorage</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+   contactUUID: String [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   recipientUUID: String [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   senderUUID: String [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   timestamp: Instant [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   unencryptedMessage: String [1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+MoreKeysKeyboardView1145680732[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)MoreKeysKeyboardView</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   mActivePointerId: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mController: Controller [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mCoordinates: int[] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mCurrentKey: Key [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   mKeyDetector: KeyDetector [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   mListener: KeyboardActionListener [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mOriginX: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mOriginY: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >- detectKey(x: int, y: int): Key</TD></TR>
+<TR><TD ALIGN="LEFT" >+ dismissMoreKeysPanel()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onDownEvent(x: int, y: int, pointerId: int)</TD></TR>
+<TR><TD ALIGN="LEFT" ># onKeyInput(key: Key)</TD></TR>
+<TR><TD ALIGN="LEFT" ># onMeasure(widthMeasureSpec: int, heightMeasureSpec: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onMoveEvent(x: int, y: int, pointerId: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onTouchEvent(me: MotionEvent): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onUpEvent(x: int, y: int, pointerId: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ removeFromParent()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ showInParent(parentView: ViewGroup)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ showMoreKeysPanel(parentView: View, controller: Controller, pointX: int, pointY: int, listener: KeyboardActionListener)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ translateX(x: int): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ translateY(y: int): int</TD></TR>
+<TR><TD ALIGN="LEFT" >- updatePressKeyGraphics(key: Key)</TD></TR>
+<TR><TD ALIGN="LEFT" >- updateReleaseKeyGraphics(key: Key)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+PointerTracker1145680732[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)PointerTracker</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   mBogusMoveEventDetector: BogusMoveEventDetector [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mCurrentKey: Key [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mCurrentRepeatingKeyCode: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mCursorMoved: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mDownCoordinates: int[] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mIsAllowedDraggingFinger: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   mIsInDraggingFinger: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   mIsInSlidingKeyInput: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mIsTrackingForActionDisabled: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mKeyDetector: KeyDetector [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mKeyX: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mKeyY: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mKeyboard: Keyboard [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mKeyboardLayoutHasBeenChanged: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mLastX: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mLastY: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mMoreKeysPanel: MoreKeysPanel [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   mPointerId: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mStartTime: long [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mStartX: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >- callListenerOnCodeInput(key: Key, primaryCode: int, x: int, y: int, isKeyRepeat: boolean)</TD></TR>
+<TR><TD ALIGN="LEFT" >- callListenerOnFinishSlidingInput()</TD></TR>
+<TR><TD ALIGN="LEFT" >- callListenerOnPressAndCheckKeyboardLayoutChange(key: Key, repeatCount: int): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >- callListenerOnRelease(key: Key, primaryCode: int, withSliding: boolean)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ cancelAllPointerTrackers()</TD></TR>
+<TR><TD ALIGN="LEFT" >- cancelKeyTracking()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ cancelTrackingForAction()</TD></TR>
+<TR><TD ALIGN="LEFT" >- detectAndSendKey(key: Key, x: int, y: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ dismissAllMoreKeysPanels()</TD></TR>
+<TR><TD ALIGN="LEFT" >- dismissMoreKeysPanel()</TD></TR>
+<TR><TD ALIGN="LEFT" >- dragFingerFromOldKeyToNewKey(key: Key, x: int, y: int, eventTime: long, oldKey: Key)</TD></TR>
+<TR><TD ALIGN="LEFT" >- dragFingerOutFromOldKey(oldKey: Key, x: int, y: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >- getDistance(x1: int, y1: int, x2: int, y2: int): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getKeyOn(x: int, y: int): Key</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getLastCoordinates(outCoords: int[])</TD></TR>
+<TR><TD ALIGN="LEFT" >- getLongPressTimeout(code: int): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getPointerTracker(id: int): PointerTracker</TD></TR>
+<TR><TD ALIGN="LEFT" >+ init(mainKeyboardViewAttr: TypedArray, timerProxy: TimerProxy, drawingProxy: DrawingProxy)</TD></TR>
+<TR><TD ALIGN="LEFT" >- isMajorEnoughMoveToBeOnNewKey(x: int, y: int, newKey: Key): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >- onCancelEvent(x: int, y: int, eventTime: long)</TD></TR>
+<TR><TD ALIGN="LEFT" >- onCancelEventInternal()</TD></TR>
+<TR><TD ALIGN="LEFT" >- onDownEvent(x: int, y: int, eventTime: long, keyDetector: KeyDetector)</TD></TR>
+<TR><TD ALIGN="LEFT" >- onDownEventInternal(x: int, y: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >- onDownKey(x: int, y: int): Key</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onKeyRepeat(code: int, repeatCount: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onLongPressed()</TD></TR>
+<TR><TD ALIGN="LEFT" >- onMoveEvent(x: int, y: int, eventTime: long)</TD></TR>
+<TR><TD ALIGN="LEFT" >- onMoveEventInternal(x: int, y: int, eventTime: long)</TD></TR>
+<TR><TD ALIGN="LEFT" >- onMoveKey(x: int, y: int): Key</TD></TR>
+<TR><TD ALIGN="LEFT" >- onMoveKeyInternal(x: int, y: int): Key</TD></TR>
+<TR><TD ALIGN="LEFT" >- onMoveToNewKey(newKey: Key, x: int, y: int): Key</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onPhantomUpEvent(eventTime: long)</TD></TR>
+<TR><TD ALIGN="LEFT" >- onUpEvent(x: int, y: int, eventTime: long)</TD></TR>
+<TR><TD ALIGN="LEFT" >- onUpEventInternal(x: int, y: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >- printTouchEvent(title: String, x: int, y: int, eventTime: long)</TD></TR>
+<TR><TD ALIGN="LEFT" >- processDraggingFingerInToNewKey(newKey: Key, x: int, y: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >- processDraggingFingerOutFromOldKey(oldKey: Key)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ processMotionEvent(me: MotionEvent, keyDetector: KeyDetector)</TD></TR>
+<TR><TD ALIGN="LEFT" >- resetKeySelectionByDraggingFinger()</TD></TR>
+<TR><TD ALIGN="LEFT" >- startKeyRepeatTimer(repeatCount: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >- startKeySelectionByDraggingFinger(key: Key)</TD></TR>
+<TR><TD ALIGN="LEFT" >- startLongPressTimer(key: Key)</TD></TR>
+<TR><TD ALIGN="LEFT" >- startRepeatKey(key: Key)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+PointerTrackerQueue1755319567[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)PointerTrackerQueue</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   mArraySize: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mExpandableArrayOfActivePointers: ArrayList&lt;Element&gt; [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ add(pointer: Element)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ cancelAllPointerTrackers()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ hasModifierKeyOlderThan(pointer: Element): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ releaseAllPointers(eventTime: long)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ releaseAllPointersExcept(pointer: Element, eventTime: long)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ releaseAllPointersOlderThan(pointer: Element, eventTime: long)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ remove(pointer: Element)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ size(): int</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+PreKeyMetadataAbstractStore606348006[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)PreKeyMetadataAbstractStore</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   activeSignedPreKeyId: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   isSignedPreKeyRegistered: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   nextOneTimePreKeyId: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   nextSignedPreKeyId: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   nextSignedPreKeyRefreshTime: long [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   oldSignedPreKeyDeletionTime: long [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   signedPreKeyFailureCount: int [1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+PreKeyMetadataStoreFullImplementation606348006[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)PreKeyMetadataStoreFullImplementation</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   activeSignedPreKeyId: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   isSignedPreKeyRegistered: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   nextOneTimePreKeyId: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   nextSignedPreKeyId: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   nextSignedPreKeyRefreshTime: long [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   oldSignedPreKeyDeletionTime: long [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   signedPreKeyFailureCount: int [1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+PreKeyStoreFullImplementation606348006[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)PreKeyStoreFullImplementation</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   store: Map&lt;Integer, PreKeyWithStatus&gt; [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ checkPreKeyAvailable(preKeyId: int): Boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ containsPreKey(preKeyId: int): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ loadPreKey(preKeyId: int): PreKeyRecord</TD></TR>
+<TR><TD ALIGN="LEFT" >+ removeAllPreKeys()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ removePreKey(preKeyId: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ storePreKey(preKeyId: int, record: PreKeyRecord)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+PreferenceManagerCompat482724919[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)PreferenceManagerCompat</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ getDeviceContext(context: Context): Context</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getDeviceSharedPreferences(context: Context): SharedPreferences</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+ResourceUtils428474958[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)ResourceUtils</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >- findConstantForKeyValuePairs(keyValuePairs: HashMap&lt;String, String&gt;, conditionConstantArray: String[]): String</TD></TR>
+<TR><TD ALIGN="LEFT" >- fulfillsCondition(keyValuePairs: HashMap&lt;String, String&gt;, condition: String): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getDefaultKeyboardHeight(res: Resources): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getDeviceOverrideValue(res: Resources, overrideResId: int, defaultValue: String): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getDimensionOrFraction(a: TypedArray, index: int, base: int, defValue: float): float</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getDimensionOrFraction(a: TypedArray, index: int, base: float, defValue: float): float</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getDimensionPixelSize(a: TypedArray, index: int): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getEnumValue(a: TypedArray, index: int, defValue: int): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getFraction(a: TypedArray, index: int, defValue: float): float</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getFraction(a: TypedArray, index: int): float</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getFraction(a: TypedArray, index: int, base: float, defValue: float): float</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getKeyboardHeight(res: Resources, settingsValues: SettingsValues): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ isBrightColor(color: int): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ isDimensionValue(v: TypedValue): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ isFractionValue(v: TypedValue): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ isIntegerValue(v: TypedValue): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ isStringValue(v: TypedValue): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ isValidDimensionPixelSize(dimension: int): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ isValidFraction(fraction: float): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+RichInputConnection1270398895[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)RichInputConnection</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   mCommittedTextBeforeComposingText: StringBuilder [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mComposingText: StringBuilder [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mExpectedSelEnd: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mExpectedSelStart: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mIC: InputConnection [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mNestLevel: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mOtherIC: E2EEInputConnection [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mParent: InputMethodService [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mTempObjectForCommitText: SpannableStringBuilder [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   shouldUseOtherIC: boolean [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ beginBatchEdit()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ canDeleteCharacters(): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >- checkBatchEdit()</TD></TR>
+<TR><TD ALIGN="LEFT" >- checkConsistencyForDebug()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ commitText(text: CharSequence, newCursorPosition: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ deleteTextBeforeCursor(beforeLength: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >- detectLaggyConnection(operation: int, timeout: long, startTime: long)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ endBatchEdit()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ finishComposingText()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getCursorCapsMode(inputType: int, spacingAndPunctuations: SpacingAndPunctuations): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getSelectedText(flags: int): CharSequence</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getTextAfterCursor(n: int, flags: int): CharSequence</TD></TR>
+<TR><TD ALIGN="LEFT" >- getTextAfterCursorAndDetectLaggyConnection(operation: int, timeout: long, n: int, flags: int): CharSequence</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getTextBeforeCursor(n: int, flags: int): CharSequence</TD></TR>
+<TR><TD ALIGN="LEFT" >- getTextBeforeCursorAndDetectLaggyConnection(operation: int, timeout: long, n: int, flags: int): CharSequence</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getUnicodeSteps(chars: int, rightSidePointer: boolean): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ performEditorAction(actionId: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >- reloadTextCache(): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ resetCachesUponCursorMoveAndReturnSuccess(newSelStart: int, newSelEnd: int): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ sendKeyEvent(keyEvent: KeyEvent)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+RichInputMethodManager1270398895[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)RichInputMethodManager</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   mImmService: InputMethodManager [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mSubtypeList: SubtypeList [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ addSubtype(subtype: Subtype): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >- checkInitialized()</TD></TR>
+<TR><TD ALIGN="LEFT" >- getEnabledSubtypeInfoOfAllImes(context: Context): List&lt;SubtypeInfo&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getEnabledSubtypes(sortForDisplay: boolean): Set&lt;Subtype&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getEnabledSubtypesForLocale(locale: String): Set&lt;Subtype&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ init(context: Context)</TD></TR>
+<TR><TD ALIGN="LEFT" >- initInternal(context: Context)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ removeSubtype(subtype: Subtype): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ resetSubtypeCycleOrder()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setCurrentSubtype(subtype: Subtype): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setCurrentSubtype(locale: Locale): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ shouldOfferSwitchingToOtherInputMethods(binder: IBinder): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ showSubtypePicker(context: Context, windowToken: IBinder, inputMethodService: InputMethodService): AlertDialog</TD></TR>
+<TR><TD ALIGN="LEFT" >+ switchToNextInputMethod(token: IBinder, onlyCurrentIme: boolean): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >- switchToTargetIme(imiId: String, subtype: InputMethodSubtype, context: InputMethodService)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+SenderKeyStoreFullImplementation606348006[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)SenderKeyStoreFullImplementation</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   store: Map&lt;SenderKey, SenderKeyRecord&gt; [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ loadSenderKey(sender: SignalProtocolAddress, distributionId: UUID): SenderKeyRecord</TD></TR>
+<TR><TD ALIGN="LEFT" >+ storeSenderKey(sender: SignalProtocolAddress, distributionId: UUID, record: SenderKeyRecord)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+SessionStoreFullImplementation606348006[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)SessionStoreFullImplementation</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   sessions: List&lt;Session&gt; [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ containsSession(address: SignalProtocolAddress): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ deleteAllSessions(name: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ deleteSession(address: SignalProtocolAddress)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getPublicKeyFromSession(remoteAddress: SignalProtocolAddress): IdentityKey</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getSubDeviceSessions(name: String): List&lt;Integer&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ loadExistingSessions(addresses: List&lt;? extends SignalProtocolAddress&gt;): List&lt;SessionRecord&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ loadSession(remoteAddress: SignalProtocolAddress): SessionRecord</TD></TR>
+<TR><TD ALIGN="LEFT" >+ storeSession(address: SignalProtocolAddress, record: SessionRecord)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Settings649143170[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Settings</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   mPrefs: SharedPreferences [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mRes: Resources [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mSettingsValues: SettingsValues [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mSettingsValuesLock: ReentrantLock [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ init(context: Context)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ loadSettings(inputAttributes: InputAttributes)</TD></TR>
+<TR><TD ALIGN="LEFT" >- onCreate(context: Context)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onDestroy()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onSharedPreferenceChanged(prefs: SharedPreferences, key: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ readDefaultKeyLongpressTimeout(res: Resources): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ readDefaultKeypressSoundVolume(res: Resources): float</TD></TR>
+<TR><TD ALIGN="LEFT" >+ readDefaultKeypressVibrationDuration(res: Resources): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ readDeleteSwipeEnabled(prefs: SharedPreferences): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ readEnableImeSwitch(prefs: SharedPreferences): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ readHasHardwareKeyboard(conf: Configuration): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ readHideSpecialChars(prefs: SharedPreferences): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ readKeyLongpressTimeout(prefs: SharedPreferences, res: Resources): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ readKeyPreviewPopupEnabled(prefs: SharedPreferences, res: Resources): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ readKeyboardColor(prefs: SharedPreferences, context: Context): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ readKeyboardDefaultColor(context: Context): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ readKeyboardHeight(prefs: SharedPreferences, defaultValue: float): float</TD></TR>
+<TR><TD ALIGN="LEFT" >+ readKeypressSoundEnabled(prefs: SharedPreferences, res: Resources): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ readKeypressSoundVolume(prefs: SharedPreferences, res: Resources): float</TD></TR>
+<TR><TD ALIGN="LEFT" >+ readKeypressVibrationDuration(prefs: SharedPreferences, res: Resources): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ readPrefSubtypes(prefs: SharedPreferences): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ readShowLanguageSwitchKey(prefs: SharedPreferences): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ readShowNumberRow(prefs: SharedPreferences): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ readSpaceSwipeEnabled(prefs: SharedPreferences): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ readUseFullscreenMode(res: Resources): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ readUseMatchingNavbarColor(prefs: SharedPreferences): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ readVibrationEnabled(prefs: SharedPreferences, res: Resources): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ removeKeyboardColor(prefs: SharedPreferences)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ writePrefSubtypes(prefs: SharedPreferences, prefSubtypes: String)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+SettingsValues649143170[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)SettingsValues</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+   mAutoCap: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   mDeleteSwipeEnabled: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   mDisplayOrientation: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   mHasHardwareKeyboard: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   mHideSpecialChars: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   mImeSwitchEnabled: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   mInputAttributes: InputAttributes [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   mKeyLongpressTimeout: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   mKeyPreviewPopupDismissDelay: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   mKeyPreviewPopupOn: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   mKeyboardHeightScale: float [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   mKeypressSoundVolume: float [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   mKeypressVibrationDuration: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   mShowNumberRow: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   mShowsLanguageSwitchKey: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   mSoundOn: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   mSpaceSwipeEnabled: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   mSpacingAndPunctuations: SpacingAndPunctuations [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   mUseMatchingNavbarColor: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   mVibrateOn: boolean [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ hasSameOrientation(configuration: Configuration): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ isSameInputType(editorInfo: EditorInfo): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ isWordSeparator(code: int): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+SignalProtocolMain1190768954[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)SignalProtocolMain</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   account: Account [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   messageStorageHelper: StorageHelper [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ addContact(firstName: CharSequence, lastName: CharSequence, signalProtocolAddressName: String, deviceId: int): Contact</TD></TR>
+<TR><TD ALIGN="LEFT" >- createAndAddContactToList(firstName: CharSequence, lastName: CharSequence, signalProtocolAddressName: String, deviceId: int): Contact</TD></TR>
+<TR><TD ALIGN="LEFT" >- createFingerprint(contact: Contact): Fingerprint</TD></TR>
+<TR><TD ALIGN="LEFT" >+ createPreKeyBundle(preKeyResponse: PreKeyResponse): PreKeyBundle</TD></TR>
+<TR><TD ALIGN="LEFT" >- createPreKeyResponse(): PreKeyResponse</TD></TR>
+<TR><TD ALIGN="LEFT" >- createPreKeyResponseMessage(): MessageFrame</TD></TR>
+<TR><TD ALIGN="LEFT" >- createSession(preKeyBundle: PreKeyBundle, recipientSignalProtocolAddress: SignalProtocolAddress)</TD></TR>
+<TR><TD ALIGN="LEFT" >- decrypt(messageFrame: MessageFrame, signalProtocolAddress: SignalProtocolAddress): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ decryptMessage(messageFrame: MessageFrame, signalProtocolAddress: SignalProtocolAddress): String</TD></TR>
+<TR><TD ALIGN="LEFT" >- encrypt(unencryptedMessage: String, signalProtocolAddress: SignalProtocolAddress): MessageFrame</TD></TR>
+<TR><TD ALIGN="LEFT" >+ encryptMessage(unencryptedMessage: String, signalProtocolAddress: SignalProtocolAddress): MessageFrame</TD></TR>
+<TR><TD ALIGN="LEFT" >- extractContactFromFrame(messageFrame: MessageFrame): Contact</TD></TR>
+<TR><TD ALIGN="LEFT" >+ extractContactFromMessageFrame(messageFrame: MessageFrame): Object</TD></TR>
+<TR><TD ALIGN="LEFT" >- getContactFromAddressInContactList(signalProtocolAddress: SignalProtocolAddress): Contact</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getFingerprint(contact: Contact): Fingerprint</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getMessageType(messageFrame: MessageFrame): MessageType</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getUnencryptedMessagesList(contact: Contact): List&lt;MessageStorage&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >- getUnencryptedMessagesListFromAccount(contact: Contact): List&lt;MessageStorage&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ initialize(context: Context)</TD></TR>
+<TR><TD ALIGN="LEFT" >- initializeProtocol()</TD></TR>
+<TR><TD ALIGN="LEFT" >- initializeStorageHelper(context: Context)</TD></TR>
+<TR><TD ALIGN="LEFT" >- logMessageType(type: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >- processPreKeyResponse(messageFrame: MessageFrame, signalProtocolAddress: SignalProtocolAddress): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ processPreKeyResponseMessage(messageFrame: MessageFrame, signalProtocolAddress: SignalProtocolAddress): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ reloadAccount(context: Context)</TD></TR>
+<TR><TD ALIGN="LEFT" >- reloadAccountFromSharedPreferences()</TD></TR>
+<TR><TD ALIGN="LEFT" >- removeContact(contactToRemove: Contact)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ removeContactFromContactListAndProtocol(contact: Contact)</TD></TR>
+<TR><TD ALIGN="LEFT" >- sessionExists(signalProtocolAddress: SignalProtocolAddress): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >- storeAllAccountInformationInSharedPreferences()</TD></TR>
+<TR><TD ALIGN="LEFT" >- storeUnencryptedMessageWithInMap(account: Account, signalProtocolAddress: SignalProtocolAddress, decryptedMessage: String, timestamp: Instant, isFromOwnAccount: boolean)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ verifyContact(contact: Contact)</TD></TR>
+<TR><TD ALIGN="LEFT" >- verifyContactInContactList(contact: Contact)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+SignalProtocolStoreFullImplementation606348006[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)SignalProtocolStoreFullImplementation</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   identityKeyStore: IdentityKeyStoreFullImplementation [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   preKeyStore: PreKeyStoreFullImplementation [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   senderKeyStore: SenderKeyStoreFullImplementation [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   sessionStore: SessionStoreFullImplementation [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   signedPreKeyStore: SignedPreKeyStoreFullImplementation [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ containsPreKey(preKeyId: int): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ containsSession(address: SignalProtocolAddress): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ containsSignedPreKey(signedPreKeyId: int): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ deleteAllSessions(name: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ deleteSession(address: SignalProtocolAddress)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getIdentity(address: SignalProtocolAddress): IdentityKey</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getSubDeviceSessions(name: String): List&lt;Integer&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ isTrustedIdentity(address: SignalProtocolAddress, identityKey: IdentityKey, direction: Direction): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ loadExistingSessions(addresses: List&lt;? extends SignalProtocolAddress&gt;): List&lt;SessionRecord&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ loadPreKey(preKeyId: int): PreKeyRecord</TD></TR>
+<TR><TD ALIGN="LEFT" >+ loadSenderKey(sender: SignalProtocolAddress, distributionId: UUID): SenderKeyRecord</TD></TR>
+<TR><TD ALIGN="LEFT" >+ loadSession(address: SignalProtocolAddress): SessionRecord</TD></TR>
+<TR><TD ALIGN="LEFT" >+ loadSignedPreKey(signedPreKeyId: int): SignedPreKeyRecord</TD></TR>
+<TR><TD ALIGN="LEFT" >+ loadSignedPreKeys(): List&lt;SignedPreKeyRecord&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ removePreKey(preKeyId: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ removeSignedPreKey(signedPreKeyId: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ saveIdentity(address: SignalProtocolAddress, identityKey: IdentityKey): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ storePreKey(preKeyId: int, record: PreKeyRecord)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ storeSenderKey(sender: SignalProtocolAddress, distributionId: UUID, record: SenderKeyRecord)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ storeSession(address: SignalProtocolAddress, record: SessionRecord)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ storeSignedPreKey(signedPreKeyId: int, record: SignedPreKeyRecord)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+SignedPreKeyStoreFullImplementation606348006[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)SignedPreKeyStoreFullImplementation</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   store: Map&lt;Integer, byte[]&gt; [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ containsSignedPreKey(signedPreKeyId: int): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ loadSignedPreKey(signedPreKeyId: int): SignedPreKeyRecord</TD></TR>
+<TR><TD ALIGN="LEFT" >+ loadSignedPreKeys(): List&lt;SignedPreKeyRecord&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ removeOldSignedPreKeys(activeSignedPreKeyId: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ removeSignedPreKey(signedPreKeyId: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ storeSignedPreKey(signedPreKeyId: int, record: SignedPreKeyRecord)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+SingleLanguageSettingsFragment649143170[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)SingleLanguageSettingsFragment</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   mRichImm: RichInputMethodManager [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mSubtypePreferences: List&lt;SubtypePreference&gt; [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >- buildContent(locale: String, context: Context)</TD></TR>
+<TR><TD ALIGN="LEFT" >- buildSubtypePreferences(locale: String, group: PreferenceGroup, context: Context)</TD></TR>
+<TR><TD ALIGN="LEFT" >- createSubtypePreference(subtype: Subtype, checked: boolean, context: Context): SubtypePreference</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onActivityCreated(savedInstanceState: Bundle)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onCreate(icicle: Bundle)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+SpacingAndPunctuations649143170[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)SpacingAndPunctuations</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   mAbbreviationMarker: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mSentenceSeparator: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mSortedSentenceTerminators: int[] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   mSortedWordSeparators: int[] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   mUsesAmericanTypography: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >+   mUsesGermanRules: boolean [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ isAbbreviationMarker(code: int): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ isSentenceSeparator(code: int): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ isSentenceTerminator(code: int): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ isWordSeparator(code: int): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+StegoEncoder1421070457[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)StegoEncoder</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ decode(encodedText: String): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ encode(message: String, context: Context): String</TD></TR>
+<TR><TD ALIGN="LEFT" >- extractSentencesAndPutInMap(sentencesMap: Map&lt;Integer, String&gt;, text: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >- init(context: Context)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ initForTest(stego1: String, stego2: String)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+StorageHelper277483234[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)StorageHelper</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   mContext: Context [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   messageSharedPreferenceName: String [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ getClassFromSharedPreferences(protocolIdentifier: ProtocolIdentifier): Object</TD></TR>
+<TR><TD ALIGN="LEFT" >- logError(nameObject: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ storeAllInformationInSharedPreferences(account: Account)</TD></TR>
+<TR><TD ALIGN="LEFT" >- storeContactListInSharedPreferences(contactList: ArrayList&lt;Contact&gt;)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ storeDeviceIdInSharedPreferences(deviceId: Integer)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ storeInSharedPreferences(protocolIdentifier: ProtocolIdentifier, objectToStore: Object)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ storeMetaDataStoreInSharedPreferences(metadataStore: PreKeyMetadataAbstractStore)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ storeSignalProtocolAddressInSharedPreferences(signalProtocolAddress: SignalProtocolAddress)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ storeSignalProtocolInSharedPreferences(signalProtocolStore: SignalProtocolStoreFullImplementation)</TD></TR>
+<TR><TD ALIGN="LEFT" >- storeUnencryptedMessagesMapInSharedPreferences(unencryptedMessages: ArrayList&lt;MessageStorage&gt;)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ storeUniqueUserIdInSharedPreferences(uniqueUserId: String)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+StringUtils917644022[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)StringUtils</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ capitalizeEachWord(text: String, locale: Locale): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ capitalizeFirstCodePoint(s: String, locale: Locale): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ codePointCount(text: CharSequence): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ containsInArray(text: String, array: String[]): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ containsInCommaSplittableText(text: String, extraValues: String): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ copyCodePointsAndReturnCodePointCount(destination: int[], charSequence: CharSequence, startIndex: int, endIndex: int, downCase: boolean): int</TD></TR>
+<TR><TD ALIGN="LEFT" >- getLocaleUsedForToTitleCase(locale: Locale): Locale</TD></TR>
+<TR><TD ALIGN="LEFT" >+ isIdenticalAfterCapitalizeEachWord(text: String): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ isIdenticalAfterDowncase(text: String): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ isIdenticalAfterUpcase(text: String): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ newSingleCodePointString(codePoint: int): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ removeFromCommaSplittableTextIfExists(text: String, extraValues: String): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ toCodePointArray(charSequence: CharSequence): int[]</TD></TR>
+<TR><TD ALIGN="LEFT" >+ toCodePointArray(charSequence: CharSequence, startIndex: int, endIndex: int): int[]</TD></TR>
+<TR><TD ALIGN="LEFT" >+ toSortedCodePointArray(string: String): int[]</TD></TR>
+<TR><TD ALIGN="LEFT" >+ toTitleCaseOfKeyCode(code: int, locale: Locale): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ toTitleCaseOfKeyLabel(label: String, locale: Locale): String</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Subtype1270398895[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Subtype</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   mLayoutNameRes: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mLayoutNameStr: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mLayoutSet: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mLocale: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mResources: Resources [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mShowLayoutInName: boolean [1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+SubtypeList368902371[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)SubtypeList</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   mCurrentSubtypeIndex: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mPrefs: SharedPreferences [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mSubtypeChangedListener: SubtypeChangedListener [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mSubtypes: List&lt;Subtype&gt; [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ addSubtype(subtype: Subtype): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getAll(sortForDisplay: boolean): Set&lt;Subtype&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getAllForLocale(locale: String): Set&lt;Subtype&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ notifySubtypeChanged()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ removeSubtype(subtype: Subtype): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ resetSubtypeCycleOrder()</TD></TR>
+<TR><TD ALIGN="LEFT" >- saveSubtypeListPref()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setCurrentSubtype(subtype: Subtype): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setCurrentSubtype(locale: Locale): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ size(): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ switchToNextSubtype(notifyChangeOnCycle: boolean): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+SubtypeLocaleUtils428474958[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)SubtypeLocaleUtils</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ getDefaultSubtype(locale: String, resources: Resources): Subtype</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getDefaultSubtypes(resources: Resources): List&lt;Subtype&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getSubtype(locale: String, layoutSet: String, resources: Resources): Subtype</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getSubtypes(locale: String, resources: Resources): List&lt;Subtype&gt;</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+SubtypePreferenceUtils428474958[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)SubtypePreferenceUtils</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ createPrefSubtypes(subtypes: List&lt;Subtype&gt;): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ createSubtypesFromPref(prefSubtypes: String, resources: Resources): List&lt;Subtype&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >- getPrefString(subtype: Subtype): String</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+UIHandler2133923228[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)UIHandler</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   mAppliedEditorInfo: EditorInfo [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mDelayInMillisecondsToUpdateShiftState: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mHasPendingFinishInput: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mHasPendingFinishInputView: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mHasPendingStartInput: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mIsOrientationChanging: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   mPendingSuccessiveImsCallback: boolean [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ cancelDeallocateMemory()</TD></TR>
+<TR><TD ALIGN="LEFT" >- executePendingImsCallback(latinIme: LatinIME, editorInfo: EditorInfo, restarting: boolean)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ handleMessage(msg: Message)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onCreate()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onFinishInput()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onFinishInputView(finishingInput: boolean)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onStartInput(editorInfo: EditorInfo, restarting: boolean)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ onStartInputView(editorInfo: EditorInfo, restarting: boolean)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ postDeallocateMemory()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ postResetCaches(tryResumeSuggestions: boolean, remainingTries: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ postUpdateShiftState()</TD></TR>
+<TR><TD ALIGN="LEFT" >- resetPendingImsCallback()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+UnicodeSurrogate917644022[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)UnicodeSurrogate</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ isHighSurrogate(c: char): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ isLowSurrogate(c: char): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+ViewLayoutUtils428474958[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)ViewLayoutUtils</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ newLayoutParam(placer: ViewGroup, width: int, height: int): MarginLayoutParams</TD></TR>
+<TR><TD ALIGN="LEFT" >+ placeViewAt(view: View, x: int, y: int, w: int, h: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ updateLayoutGravityOf(view: View, layoutGravity: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ updateLayoutHeightOf(window: Window, layoutHeight: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ updateLayoutHeightOf(view: View, layoutHeight: int)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+} 
+
+'edges    
+Account1190768954 -> Contact1675833460[label="contactList
+[0..*]"];
+Account1190768954 -> MessageStorage1675833460[label="unencryptedMessages
+[0..*]"];
+Account1190768954 -> PreKeyMetadataAbstractStore606348006[label="metadataStore
+[0..1]"];
+Account1190768954 -> SignalProtocolStoreFullImplementation606348006[label="signalProtocolStore
+[0..1]"];
+E2EEMenu1648205996 -> EncodingHelper1421070457[label="decodeMessage() -> encodedTextContainsInvisibleCharacters()"];
+E2EEMenu1648205996 -> JsonUtil1675285450[label="encryptMessage() -> toJson()"];
+E2EEMenuView1648205996 -> Contact1675833460[label="chosenContact
+[0..1]"];
+E2EEMenuView1648205996 -> E2EEMenu1648205996[label="messageE2EEStrip
+[0..1]"];
+E2EEMenuView1648205996 -> E2EEStripVisibilityGroup115521613[label="messageE2EEStripVisibilityGroup
+[0..1]"];
+E2EEMenuView1648205996 -> HTMLFormatter1417210876[label="initClipboardListenerToChangeStateOfDecryptButton() -> replaceHtmlCharacters()"];
+E2EEMenuView1648205996 -> LatinIME1270398895[label="messageListener
+[0..1]", arrowhead=none];
+E2EEMenuView1648205996 -> MainKeyboardView1145680732[label="messageMainKeyboardView
+[0..1]"];
+E2EEMenuView1648205996 -> RichInputConnection1270398895[label="mRichInputConnection
+[0..1]"];
+InputLogic1836191373 -> LatinIME1270398895[label="mLatinIME
+[0..1]"];
+InputMethodSettingsFragment649143170 -> InputMethodSettingsImpl649143170[label="mSettings
+[0..1]"];
+InputMethodSettingsImpl649143170 -> RichInputMethodManager1270398895[label="mRichImm
+[0..1]"];
+InputView1270398895 -> MainKeyboardView1145680732[label="mMainKeyboardView
+[0..1]"];
+KeyboardState1755319567 -> KeyboardSwitcher1145680732[label="mSwitchActions
+[0..1]", arrowhead=none];
+KeyboardSwitcher1145680732 -> InputView1270398895[label="mCurrentInputView
+[0..1]"];
+KeyboardSwitcher1145680732 -> LatinIME1270398895[label="mLatinIME
+[0..1]"];
+KeyboardSwitcher1145680732 -> MainKeyboardView1145680732[label="mKeyboardView
+[0..1]"];
+KeyboardSwitcher1145680732 -> RichInputMethodManager1270398895[label="mRichImm
+[0..1]"];
+KeyboardView1145680732 -> MainKeyboardView1145680732[arrowhead=none, arrowtail=empty, dir=both];
+KeyboardView1145680732 -> MoreKeysKeyboardView1145680732[arrowhead=none, arrowtail=empty, dir=both];
+LanguagesSettingsFragment649143170 -> RichInputMethodManager1270398895[label="mRichImm
+[0..1]"];
+LatinIME1270398895 -> Adapter1797059[arrowhead=none];
+LatinIME1270398895 -> DebugFlags898462502[label="onCreate() -> init()"];
+LatinIME1270398895 -> E2EEMenuView1648205996[label="mE2EEMenuView
+[0..1]"];
+LatinIME1270398895 -> EditorInfoCompatUtils482724919[label="onStartInputInternal() -> getPrimaryHintLocale()"];
+LatinIME1270398895 -> InputLogic1836191373[label="mInputLogic
+[0..1]"];
+LatinIME1270398895 -> InsetsOutlineProvider1736155668[arrowhead=none];
+LatinIME1270398895 -> KeyboardSwitcher1145680732[label="mKeyboardSwitcher
+[0..1]"];
+LatinIME1270398895 -> PreferenceManagerCompat482724919[label="onCreate() -> getDeviceSharedPreferences()"];
+LatinIME1270398895 -> RichInputConnection1270398895[label="mRichInputConnection
+[0..1]"];
+LatinIME1270398895 -> RichInputMethodManager1270398895[label="mRichImm
+[0..1]"];
+LatinIME1270398895 -> Settings649143170[label="mSettings
+[0..1]"];
+LatinIME1270398895 -> UIHandler2133923228[label="mHandler
+[0..1]"];
+ListAdapterContacts1636112371 -> E2EEMenuView1648205996[label="mListener
+[0..1]", arrowhead=none];
+LocaleResourceUtils428474958 -> StringUtils917644022[label="getLocaleDisplayNameInternal() -> capitalizeFirstCodePoint()"];
+MainKeyboardView1145680732 -> LatinIME1270398895[label="mKeyboardActionListener
+[0..1]", arrowhead=none];
+MainKeyboardView1145680732 -> MoreKeysKeyboardView1145680732[label="mMoreKeysPanel
+[0..1]", arrowhead=none];
+MoreKeysKeyboardView1145680732 -> LatinIME1270398895[label="mListener
+[0..1]", arrowhead=none];
+MoreKeysKeyboardView1145680732 -> MainKeyboardView1145680732[label="mController
+[0..1]", arrowhead=none];
+PointerTracker1145680732 -> MoreKeysKeyboardView1145680732[label="mMoreKeysPanel
+[0..1]", arrowhead=none];
+PointerTrackerQueue1755319567 -> PointerTracker1145680732[label="mExpandableArrayOfActivePointers
+[0..*]", arrowhead=none];
+PreKeyMetadataAbstractStore606348006 -> PreKeyMetadataStoreFullImplementation606348006[arrowhead=none, arrowtail=empty, dir=both];
+RichInputConnection1270398895 -> CapsModeUtils428474958[label="getCursorCapsMode() -> getCapsMode()"];
+RichInputConnection1270398895 -> E2EEInputConnection1270398895[label="mOtherIC
+[0..1]"];
+RichInputConnection1270398895 -> LatinIME1270398895[label="checkConsistencyForDebug() -> debugDumpStateAndCrashWithException()"];
+RichInputConnection1270398895 -> RichInputMethodManager1270398895[label="commitText() -> resetSubtypeCycleOrder()"];
+RichInputConnection1270398895 -> StringUtils917644022[label="sendKeyEvent() -> newSingleCodePointString()"];
+RichInputMethodManager1270398895 -> DialogUtils428474958[label="showSubtypePicker() -> getPlatformDialogThemeContext()"];
+RichInputMethodManager1270398895 -> LocaleResourceUtils428474958[label="initInternal() -> init()"];
+RichInputMethodManager1270398895 -> SubtypeList368902371[label="mSubtypeList
+[0..1]"];
+Settings649143170 -> KeyboardTheme1145680732[label="readKeyboardDefaultColor() -> getKeyboardTheme()"];
+Settings649143170 -> PreferenceManagerCompat482724919[label="onCreate() -> getDeviceSharedPreferences()"];
+Settings649143170 -> SettingsValues649143170[label="mSettingsValues
+[0..1]"];
+SignalProtocolMain1190768954 -> Account1190768954[label="account
+[0..1]"];
+SignalProtocolMain1190768954 -> StorageHelper277483234[label="messageStorageHelper
+[0..1]"];
+SignalProtocolStoreFullImplementation606348006 -> IdentityKeyStoreFullImplementation606348006[label="identityKeyStore
+[0..1]"];
+SignalProtocolStoreFullImplementation606348006 -> PreKeyStoreFullImplementation606348006[label="preKeyStore
+[1]"];
+SignalProtocolStoreFullImplementation606348006 -> SenderKeyStoreFullImplementation606348006[label="senderKeyStore
+[1]"];
+SignalProtocolStoreFullImplementation606348006 -> SessionStoreFullImplementation606348006[label="sessionStore
+[1]"];
+SignalProtocolStoreFullImplementation606348006 -> SignedPreKeyStoreFullImplementation606348006[label="signedPreKeyStore
+[1]"];
+SingleLanguageSettingsFragment649143170 -> RichInputMethodManager1270398895[label="mRichImm
+[0..1]"];
+StringUtils917644022 -> Constants917644022[label="toTitleCaseOfKeyCode() -> isLetterCode()"];
+SubtypeList368902371 -> LatinIME1270398895[arrowhead=none];
+SubtypeList368902371 -> LatinIME1270398895[label="mSubtypeChangedListener
+[0..1]", arrowhead=none];
+SubtypeList368902371 -> LocaleUtils917644022[label="setCurrentSubtype() -> findBestLocale()"];
+SubtypeList368902371 -> Settings649143170[label="saveSubtypeListPref() -> writePrefSubtypes()"];
+SubtypeList368902371 -> Subtype1270398895[label="mSubtypes
+[0..*]"];
+SubtypeList368902371 -> SubtypePreferenceUtils428474958[label="saveSubtypeListPref() -> createPrefSubtypes()"];
+SubtypePreferenceUtils428474958 -> SubtypeLocaleUtils428474958[label="createSubtypesFromPref() -> getSubtype()"];
+    
+}
+@enduml

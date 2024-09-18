@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+
+-->
+<resources>
+  <!-- Symbols that terminate sentences and require capitalization on the next char -->
+  <string name="symbols_sentence_terminators">.;!?</string>
+</resources>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        tools:targetApi="31"
+        android:label="@string/english_ime_name"
+        >
+
+        <service
+            android:name="com.richdear.privacykeyboard.inputmethod.latin.LatinIME"
+            android:directBootAware="false"
+            android:exported="false"
+            android:label="@string/english_ime_name"
+            android:permission="android.permission.BIND_INPUT_METHOD"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.view.InputMethod" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.view.im"
+                android:resource="@xml/method" />
+        </service>
+
+
+        <activity
+            android:name="com.richdear.privacykeyboard.inputmethod.latin.settings.SettingsActivity"
+            android:exported="true"
+            android:label="@string/english_ime_name"
+            android:launchMode="singleTask"
+            android:noHistory="true"
+            android:theme="@style/platformSettingsTheme"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name="com.richdear.privacykeyboard.inputmethod.latin.SystemBroadcastReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.LOCALE_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>

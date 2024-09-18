@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+
+-->
+<resources>
+  <!-- The sentence separator code point, for double-space-to-period -->
+  <!-- U+007C: "|" VERTICAL LINE ; 7Ch = 124d -->
+  <integer name="sentence_separator">124</integer>
+</resources>
