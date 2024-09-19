@@ -1,0 +1,132 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+
+Account -- Contact: Uses >
+Account -- StorageMessage: Uses >
+Account -- PreKeyMetaDataStore: Uses >
+SignalProtocolStoreFullImplementation -- Account: Uses <
+
+
+SignalProtocolStoreFullImplementation -- SignalProtocolMain: Uses <
+Account -- SignalProtocolMain: Uses <
+MessageFrame -- SignalProtocolMain: Uses <
+StorageHelper -- SignalProtocolMain: Uses <
+
+
+SignalProtocolStoreFullImplementation -- SenderKeyStoreFullImlementation: Uses >
+SignalProtocolStoreFullImplementation -- SessionStoreFullImlementation: Uses >
+SignalProtocolStoreFullImplementation -- IdentityKeyStoreFullImlementation: Uses >
+SignalProtocolStoreFullImplementation -- SignedPreKeyStoreFullImlementation: Uses >
+SignalProtocolStoreFullImplementation -- PreKeyStoreFullImlementation: Uses >
+
+KeyUtil -- SignedPreKeyStoreFullImlementation: Uses >
+KeyUtil -- PreKeyStoreFullImlementation: Uses >
+
+class SignalProtocolMain{
+  account: Account
+  messageStorageHelper: StorageHelper
+  createPreKeyBundle(preKeyResponse):PreKeyBundle
+  createPreKeyResponseMessage(): MessageFrame
+  processPreKeyResponseMessage(messageFrame, signalProtocolAddress)
+  encryptMessage(message, signalProtocolAddress):MessageFrame
+  decryptMessage(messageFrame, signalProtocolAddress): String
+  createSession(preKeyBundle, signalProtocolAddress)
+  addContact(firstName, lastName, signalProtocolAddress, deviceId)
+  extractContactFromFrame(messageFrame):Contact
+  getFingerPrint(contact)
+  verifyContact(contact)
+}
+
+class MessageFrame{
+   PreKeyResponse preKeyResponse
+   ByteArray ciphertextMessage
+   Integer ciphertextType
+   Long timestamp
+   String signalProtocolAddress
+   Integer deviceId
+}
+
+class Account{
+    name: String
+    deviceId: Integer
+    identityKeyPair: IdentityKeyPair
+    metadataStore: PreKeyMetadataAbstractStore
+    signalProtocolStore: SignalProtocolStoreFullImplementation
+    signalProtocolAddress: SignalProtocolAddress
+    addContactToContactList(contact)
+}
+
+class SignalProtocolStoreFullImplementation{
+    identityKeyStore: IdentityKeyStoreFullImplementation
+    preKeyStore: PreKeyStoreFullImplementation
+    senderKeyStore: SenderKeyStoreFullImlementation
+    sessionStore: SessionStoreFullImplementation
+    signedPreKeyStore: SignedPreKeyStoreFullImplementation
+}
+
+class SenderKeyStoreFullImlementation{
+    store: Map<SenderKey, SenderKeyRecord>
+    loadSenderKey()
+}
+
+class SessionStoreFullImlementation{
+    sessions: List<Session>
+    storeSession()
+}
+
+class IdentityKeyStoreFullImlementation{
+    identityKeyPair: IdentityKeyPair
+    getIdentityKeyFromEntryList(signalProtocolAddress)
+}
+
+class SignedPreKeyStoreFullImlementation{
+    store: Map<Integer, Byte>
+    loadSignedPreKeys(): List<SignedPrekeyRecord>
+    storeSignedPreKey(signedPreKeyId, record)
+}
+
+class PreKeyStoreFullImlementation{
+    store: Map<Integer, PreKeyWithStatus>
+    loadPreKey(): PreKeyRecord
+    storePreKey(preKeyId, record)
+}
+
+class KeyUtil{
+    generateAndStoreOneTimePreKey(protocolStore, preKeyId): PreKeyRecord
+    generateAndStoreSignedPreKey(protocolStore, metadataStore): SignedPrekeyRecord
+    generateIdentityKeyPair():IdentityKeyPair
+}
+
+class Contact{
+    firstName: String
+    lastName: String
+    deviceId: Integer
+    signalProtocolAddressName: String
+    isVerified: Boolean
+}
+
+class StorageMessage{
+    contactUUID: String
+    recipientUUID: String
+    senderUUID: String
+    timestamp: Long
+    unencryptedMessage: String
+}
+
+class PreKeyMetaDataStore{
+    activeSignedPreKeyId: Integer
+    nextOneTimePreKeyId: Integer
+    nextSignedPreKeyId: Integer
+}
+
+class StorageHelper{
+    mContext: Context
+    mSharedPreferenceName: String
+    storeAllInformationInSharedPreferences(account)
+}
+
+
+
+@enduml

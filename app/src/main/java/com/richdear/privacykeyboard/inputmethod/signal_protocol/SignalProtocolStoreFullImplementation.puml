@@ -1,0 +1,46 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+SignalProtocolStoreFullImplementation -- SenderKeyStoreFullImlementation: Uses >
+SignalProtocolStoreFullImplementation -d- SessionStoreFullImlementation: Uses >
+SignalProtocolStoreFullImplementation -u- IdentityKeyStoreFullImlementation: Uses >
+SignalProtocolStoreFullImplementation -u- SignedPreKeyStoreFullImlementation: Uses >
+SignalProtocolStoreFullImplementation -- PreKeyStoreFullImlementation: Uses >
+
+class SignalProtocolStoreFullImplementation{
+    identityKeyStore: IdentityKeyStoreFullImplementation
+    preKeyStore: PreKeyStoreFullImplementation
+    senderKeyStore: SenderKeyStoreFullImlementation
+    sessionStore: SessionStoreFullImplementation
+    signedPreKeyStore: SignedPreKeyStoreFullImplementation
+}
+
+class SenderKeyStoreFullImlementation{
+    store: Map<SenderKey, SenderKeyRecord>
+    loadSenderKey()
+}
+
+class SessionStoreFullImlementation{
+    sessions: List<Session>
+    storeSession()
+}
+
+class IdentityKeyStoreFullImlementation{
+    identityKeyPair: IdentityKeyPair
+    getIdentityKeyFromEntryList(signalProtocolAddress)
+}
+
+class SignedPreKeyStoreFullImlementation{
+    store: Map<Integer, Byte>
+    loadSignedPreKeys(): List<SignedPrekeyRecord>
+    storeSignedPreKey(signedPreKeyId, record)
+}
+
+class PreKeyStoreFullImlementation{
+    store: Map<Integer, PreKeyWithStatus>
+    loadPreKey(): PreKeyRecord
+    storePreKey(preKeyId, record)
+}
+
+
+@enduml

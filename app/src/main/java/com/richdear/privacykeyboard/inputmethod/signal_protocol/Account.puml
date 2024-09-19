@@ -1,0 +1,49 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+Account -- Contact: Uses >
+Account -u- StorageMessage: Uses >
+Account -- PreKeyMetaDataStore: Uses >
+SignalProtocolStoreFullImplementation -- Account: Uses <
+
+class Account{
+    name: String
+    deviceId: Integer
+    identityKeyPair: IdentityKeyPair
+    metadataStore: PreKeyMetadataAbstractStore
+    signalProtocolStore: SignalProtocolStoreFullImplementation
+    signalProtocolAddress: SignalProtocolAddress
+    addContactToContactList(contact)
+}
+
+class SignalProtocolStoreFullImplementation{
+    identityKeyStore: IdentityKeyStoreFullImplementation
+    preKeyStore: PreKeyStoreFullImplementation
+    senderKeyStore: SenderKeyStoreFullImlementation
+    sessionStore: SessionStoreFullImplementation
+    signedPreKeyStore: SignedPreKeyStoreFullImplementation
+}
+
+class Contact{
+    firstName: String
+    lastName: String
+    deviceId: Integer
+    signalProtocolAddressName: String
+    isVerified: Boolean
+}
+
+class StorageMessage{
+    contactUUID: String
+    recipientUUID: String
+    senderUUID: String
+    timestamp: Long
+    unencryptedMessage: String
+}
+
+class PreKeyMetaDataStore{
+    activeSignedPreKeyId: Integer
+    nextOneTimePreKeyId: Integer
+    nextSignedPreKeyId: Integer
+}
+
+@enduml
